@@ -887,9 +887,16 @@
         }
 
         .faq-panel {
-            padding: 0 24px 24px;
+            padding: 0 24px;
             color: var(--text-secondary);
             line-height: 1.6;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item[open] .faq-panel {
+            padding: 0 24px 24px;
         }
 
         .faq-item--hidden {
@@ -913,11 +920,6 @@
 
         .faq-toggle-btn img {
             display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-toggle-btn.expanded img {
-            transform: rotate(180deg);
         }
 
         /* Footer */
