@@ -7,6 +7,7 @@
     <meta name="description" content="Виставляй рахунки, отримуй гроші наступного дня. Легально, просто та без ZUS. Порівняй JDG, B2B та BIZ UP і обери тариф для себе.">
     
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -122,50 +123,67 @@
             Ми поєднуємо фінансову вигоду, безпеку та інновації
         </p>
         
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px;">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>KSeF-Ready</h3>
-                <p style="color: var(--text-secondary); font-size: 14px;">Готовність до електронної інвойсизації з 2026 року</p>
+        <div class="swiper features-swiper" style="margin-top: 48px;">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>KSeF-Ready</h3>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Готовність до електронної інвойсизації з 2026 року</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚖️</div>
+                        <h3>Legal & Compliance</h3>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Юридична підтримка та готові договори</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Expats 360°</h3>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Residence permit, рахунки в EUR/USD</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Швидкі виплати</h3>
+                        <p style="color: var(--text-secondary); font-size: 14px;">T+1 стандарт, D+0 опціонально</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="feature-card">
+                        <div class="feature-icon">💳</div>
+                        <h3>Мультивалюта</h3>
+                        <p style="color: var(--text-secondary); font-size: 14px;">PLN, EUR, USD, Payoneer, USDT</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏥</div>
+                        <h3>Медпакет</h3>
+                        <p style="color: var(--text-secondary); font-size: 14px;">LUXMED, Multisport, NFZ</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>Команди</h3>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Субрахунки, менеджер, виплати</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>CRM-система</h3>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Інвойсинг, звіти, аналітика</p>
+                    </div>
+                </div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">⚖️</div>
-                <h3>Legal & Compliance</h3>
-                <p style="color: var(--text-secondary); font-size: 14px;">Юридична підтримка та готові договори</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🌍</div>
-                <h3>Expats 360°</h3>
-                <p style="color: var(--text-secondary); font-size: 14px;">Residence permit, рахунки в EUR/USD</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🚀</div>
-                <h3>Швидкі виплати</h3>
-                <p style="color: var(--text-secondary); font-size: 14px;">T+1 стандарт, D+0 опціонально</p>
-            </div>
-        </div>
-        
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 24px;">
-            <div class="feature-card">
-                <div class="feature-icon">💳</div>
-                <h3>Мультивалюта</h3>
-                <p style="color: var(--text-secondary); font-size: 14px;">PLN, EUR, USD, Payoneer, USDT</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏥</div>
-                <h3>Медпакет</h3>
-                <p style="color: var(--text-secondary); font-size: 14px;">LUXMED, Multisport, NFZ</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">👥</div>
-                <h3>Команди</h3>
-                <p style="color: var(--text-secondary); font-size: 14px;">Субрахунки, менеджер, виплати</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>CRM-система</h3>
-                <p style="color: var(--text-secondary); font-size: 14px;">Інвойсинг, звіти, аналітика</p>
-            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
 </section>
@@ -985,6 +1003,30 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const featuresSwiper = new Swiper('.features-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 24,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 4,
+                }
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
