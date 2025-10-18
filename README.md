@@ -7,24 +7,33 @@ Landing page for BIZ UP business incubator service in Poland. Helps freelancers 
 - Responsive navigation with social links and contact info
 - Multi-language support (UA, EN, PL, RU)
 - Hero section with call-to-action buttons
+- Interactive feature cards slider (Swiper)
+- Partners/payment systems carousel
 - Fee calculator with different pricing plans
 - Tax calculations (PIT) with/without VAT support
 - Multiple currency support
 - Comparison between BIZ UP, JDG, and B2B models
+- Smooth scroll animations
 
 ## Tech Stack
 
 - HTML5
 - CSS3
 - Vanilla JavaScript
+- Swiper.js 11 (carousel/slider library)
 
 ## Project Structure
 
 ```
 biz-up/
-├── index.html    # Main landing page
-├── script.js     # Calculator logic and interactions
-└── style.css     # Styling and responsive design
+├── index.html           # Main landing page
+├── css/
+│   └── style.css        # Styling and responsive design
+├── js/
+│   ├── script.js        # Calculator logic and interactions
+│   └── swiper-init.js   # Swiper carousel configurations
+└── img/                 # Image assets folder
+    └── .gitignore       # Git ignore for images
 ```
 
 ## Usage
