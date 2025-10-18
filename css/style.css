@@ -892,6 +892,34 @@
             line-height: 1.6;
         }
 
+        .faq-item--hidden {
+            display: none;
+        }
+
+        .faq-toggle-btn {
+            display: block;
+            margin: 32px auto 0;
+            padding: 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-toggle-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.8;
+        }
+
+        .faq-toggle-btn img {
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-toggle-btn.expanded img {
+            transform: rotate(180deg);
+        }
+
         /* Footer */
         footer {
             background: linear-gradient(135deg, var(--color-blue-500), var(--color-purple-500));
