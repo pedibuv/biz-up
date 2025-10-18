@@ -3,41 +3,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const initialVisible = 8;
 
     faqItems.forEach(item => {
+        item.removeAttribute('open');
+    });
+
+    faqItems.forEach(item => {
         const summary = item.querySelector('.faq-btn');
-        const panel = item.querySelector('.faq-panel');
 
-        summary.addEventListener('click', function(e) {
-            e.preventDefault();
-
-            const isOpen = item.hasAttribute('open');
-
-            if (!isOpen) {
+        item.addEventListener('toggle', function() {
+            if (this.open) {
                 faqItems.forEach(otherItem => {
-                    if (otherItem !== item && otherItem.hasAttribute('open')) {
-                        const otherPanel = otherItem.querySelector('.faq-panel');
-                        otherPanel.style.maxHeight = otherPanel.scrollHeight + 'px';
-                        setTimeout(() => {
-                            otherPanel.style.maxHeight = '0';
-                        }, 10);
-                        setTimeout(() => {
-                            otherItem.removeAttribute('open');
-                        }, 400);
+                    if (otherItem !== item && otherItem.open) {
+                        otherItem.open = false;
                     }
                 });
-
-                item.setAttribute('open', '');
-                panel.style.maxHeight = '0';
-                setTimeout(() => {
-                    panel.style.maxHeight = panel.scrollHeight + 'px';
-                }, 10);
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + 'px';
-                setTimeout(() => {
-                    panel.style.maxHeight = '0';
-                }, 10);
-                setTimeout(() => {
-                    item.removeAttribute('open');
-                }, 400);
             }
         });
     });
@@ -81,9 +59,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (faqItems.length > 0) {
         faqItems[0].setAttribute('open', '');
-        const firstPanel = faqItems[0].querySelector('.faq-panel');
-        if (firstPanel) {
-            firstPanel.style.maxHeight = firstPanel.scrollHeight + 'px';
-        }
     }
 });
