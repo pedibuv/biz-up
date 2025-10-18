@@ -19,3 +19,24 @@ const featuresSwiper = new Swiper('.features-swiper', {
         }
     }
 });
+
+const partnersSwiper = new Swiper('.partners-swiper', {
+    slidesPerView: 2,
+    spaceBetween: 60,
+    loop: true,
+    autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+    },
+    breakpoints: {
+        640: {
+            slidesPerView: 3,
+        },
+        768: {
+            slidesPerView: 4,
+        },
+        1024: {
+            slidesPerView: 6,
+        }
+    }
+});
