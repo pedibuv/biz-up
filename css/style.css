@@ -199,6 +199,44 @@
             height: auto;
         }
 
+        .testimonials-swiper {
+            padding-bottom: 60px;
+            position: relative;
+        }
+
+        .testimonials-swiper .swiper-pagination {
+            position: relative;
+            bottom: auto;
+            margin-top: 40px;
+        }
+
+        .testimonials-swiper .swiper-button-next,
+        .testimonials-swiper .swiper-button-prev {
+            width: 36px;
+            height: 36px;
+            background: var(--color-blue-500);
+            border-radius: 50%;
+            top: auto;
+            bottom: 0;
+            margin-top: 0;
+        }
+
+        .testimonials-swiper .swiper-button-next::after,
+        .testimonials-swiper .swiper-button-prev::after {
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .testimonials-swiper .swiper-button-next {
+            right: 20px;
+        }
+
+        .testimonials-swiper .swiper-button-prev {
+            left: auto;
+            right: 70px;
+        }
+
         /* Navigation */
         nav {
             position: fixed;
