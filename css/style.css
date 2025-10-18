@@ -886,6 +886,16 @@
             transform: rotate(45deg);
         }
 
+        .faq-panel {
+            overflow: hidden;
+            transition: height 0.3s ease;
+            height: 0;
+        }
+
+        .faq-item[open] .faq-panel {
+            height: auto;
+        }
+
         .faq-panel > div {
             padding: 0 24px 24px;
             color: var(--text-secondary);

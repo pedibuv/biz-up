@@ -7,15 +7,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     faqItems.forEach(item => {
-        const summary = item.querySelector('.faq-btn');
+        const panel = item.querySelector('.faq-panel');
+        const content = panel.querySelector('div');
 
-        item.addEventListener('toggle', function() {
-            if (this.open) {
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item && otherItem.open) {
-                        otherItem.open = false;
-                    }
-                });
+        item.addEventListener('click', function(e) {
+            if (e.target.closest('.faq-btn')) {
+                e.preventDefault();
+
+                const isOpen = this.hasAttribute('open');
+
+                if (!isOpen) {
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.hasAttribute('open')) {
+                            const otherPanel = otherItem.querySelector('.faq-panel');
+                            otherPanel.style.height = otherPanel.scrollHeight + 'px';
+                            requestAnimationFrame(() => {
+                                otherPanel.style.height = '0px';
+                            });
+                            setTimeout(() => {
+                                otherItem.removeAttribute('open');
+                            }, 300);
+                        }
+                    });
+
+                    this.setAttribute('open', '');
+                    panel.style.height = '0px';
+                    requestAnimationFrame(() => {
+                        panel.style.height = content.scrollHeight + 'px';
+                    });
+                } else {
+                    panel.style.height = panel.scrollHeight + 'px';
+                    requestAnimationFrame(() => {
+                        panel.style.height = '0px';
+                    });
+                    setTimeout(() => {
+                        this.removeAttribute('open');
+                    }, 300);
+                }
             }
         });
     });
