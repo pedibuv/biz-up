@@ -40,3 +40,22 @@ const partnersSwiper = new Swiper('.partners-swiper', {
         }
     }
 });
+
+const testimonialsSwiper = new Swiper('.testimonials-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 32,
+    loop: true,
+    autoHeight: false,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+        },
+        1024: {
+            slidesPerView: 3,
+        }
+    }
+});
