@@ -40,6 +40,27 @@
 }
 
 @media (max-width: 768px) {
+    .section {
+        padding: 40px 0 !important;
+    }
+
+    .calculator {
+        padding: 24px 16px !important;
+    }
+
+    .calc-results {
+        margin-top: 24px !important;
+        padding: 16px !important;
+    }
+
+    .calc-results__item {
+        padding: 12px !important;
+    }
+
+    .calc-results__total {
+        padding: 16px !important;
+    }
+
     .calc-form {
         grid-template-columns: 1fr !important;
     }
