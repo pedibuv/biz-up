@@ -77,21 +77,97 @@
     transform: translateY(-4px);
 }
 
-.profession-badge {
-    padding: 12px 24px;
-    background: var(--color-white);
-    border-radius: 24px;
-    font-weight: 500;
-    box-shadow: var(--shadow-soft);
-}
-
 .profession-list {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 400px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 16px;
-    max-width: 900px;
-    margin: 0 auto;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+.profession-badge {
+    position: relative;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 0 8px 32px rgba(58, 102, 255, 0.15), 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+    animation: float 6s ease-in-out infinite;
+}
+
+.profession-badge:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 16px 48px rgba(58, 102, 255, 0.25), 0 4px 16px rgba(122, 95, 255, 0.2);
+    background: linear-gradient(135deg, var(--color-blue-500), var(--color-purple-500));
+    color: var(--color-white);
+    border-color: rgba(122, 95, 255, 0.5);
+}
+
+.profession-badge:nth-child(1) { animation-delay: 0s; }
+.profession-badge:nth-child(2) { animation-delay: 0.5s; font-size: 17px; padding: 18px 36px; }
+.profession-badge:nth-child(3) { animation-delay: 1s; }
+.profession-badge:nth-child(4) { animation-delay: 1.5s; font-size: 16px; padding: 17px 34px; }
+.profession-badge:nth-child(5) { animation-delay: 2s; }
+.profession-badge:nth-child(6) { animation-delay: 2.5s; font-size: 18px; padding: 20px 38px; }
+.profession-badge:nth-child(7) { animation-delay: 3s; }
+.profession-badge:nth-child(8) { animation-delay: 3.5s; font-size: 16px; padding: 17px 34px; }
+.profession-badge:nth-child(9) { animation-delay: 4s; }
+.profession-badge:nth-child(10) { animation-delay: 4.5s; font-size: 17px; padding: 18px 36px; }
+.profession-badge:nth-child(11) { animation-delay: 5s; }
+.profession-badge:nth-child(12) { animation-delay: 5.5s; font-size: 16px; padding: 17px 34px; }
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(0.5deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(-0.5deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(0.3deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .profession-list {
+        min-height: auto;
+        padding: 20px 16px;
+        gap: 14px;
+    }
+
+    .profession-badge {
+        padding: 12px 24px;
+        font-size: 14px;
+        animation: float 8s ease-in-out infinite;
+    }
+
+    .profession-badge:nth-child(2),
+    .profession-badge:nth-child(4),
+    .profession-badge:nth-child(6),
+    .profession-badge:nth-child(8),
+    .profession-badge:nth-child(10),
+    .profession-badge:nth-child(12) {
+        font-size: 14px;
+        padding: 12px 24px;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+    }
 }
 
 input,
