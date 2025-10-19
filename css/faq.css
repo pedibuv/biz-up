@@ -31,8 +31,10 @@
 }
 
 .faq-btn::after {
-    content: '+';
-    font-size: 24px;
+    font-family: 'Font Awesome 6 Free';
+    content: '\f067';
+    font-weight: 900;
+    font-size: 20px;
     color: var(--color-blue-500);
     transition: transform 0.3s ease;
 }

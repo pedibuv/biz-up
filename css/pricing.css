@@ -1,54 +1,139 @@
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 32px;
     margin-top: 48px;
+    align-items: stretch;
 }
 
 .pricing-card {
-    padding: 32px 24px;
-    background: white;
-    border-radius: 16px;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
     text-align: center;
     position: relative;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(58, 102, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card .pricing-features {
+    flex-grow: 1;
+}
+
+.pricing-card .btn {
+    margin-top: auto;
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--color-blue-500), var(--color-purple-500));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.pricing-card:hover {
+    box-shadow: 0 20px 60px rgba(58, 102, 255, 0.2) !important;
+    border-color: var(--color-blue-500) !important;
+}
+
+.pricing-card:hover::before {
+    transform: scaleX(1);
 }
 
 .pricing-card.popular {
+    background: linear-gradient(135deg, #3A66FF, #7A5FFF);
     border-color: var(--color-yellow-400);
-    transform: scale(1.05);
+    box-shadow: 0 24px 80px rgba(58, 102, 255, 0.35);
 }
 
 .pricing-card.popular::before {
-    content: 'ПОПУЛЯРНО';
+    content: '';
     position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--color-yellow-400);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.pricing-card.popular:hover::before {
+    transform: scaleX(1);
+}
+
+.pricing-card.popular .pricing-title::after {
+    font-family: 'Font Awesome 6 Free', var(--font-sans);
+    content: '\f005 ПОПУЛЯРНО \f005';
+    font-weight: 900;
+    display: block;
+    margin-top: 12px;
     background: var(--color-yellow-400);
     color: var(--text-on-accent);
-    padding: 4px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
+    padding: 8px 20px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(255, 216, 77, 0.4);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricing-card.popular:hover {
+    box-shadow: 0 28px 90px rgba(122, 95, 255, 0.4) !important;
+}
+
+.pricing-card.popular .pricing-title,
+.pricing-card.popular .pricing-price,
+.pricing-card.popular .pricing-period,
+.pricing-card.popular .pricing-features li {
+    color: white;
+}
+
+.pricing-card.popular .pricing-features li::before {
+    color: var(--color-yellow-400);
 }
 
 .pricing-title {
-    font-size: 24px;
-    margin-bottom: 16px;
+    font-size: 28px;
+    margin-bottom: 20px;
     color: var(--color-blue-500);
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .pricing-price {
-    font-size: 36px;
-    font-weight: 700;
+    font-size: 48px;
+    font-weight: 800;
     margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--color-blue-500), var(--color-purple-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pricing-card.popular .pricing-price {
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .pricing-period {
     color: var(--text-secondary);
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+    font-size: 16px;
 }
 
 .pricing-features {
@@ -60,15 +145,54 @@
 .pricing-features li {
     padding: 8px 0;
     color: var(--text-secondary);
-    font-size: 14px;
+    font-size: 15px;
     display: flex;
     align-items: flex-start;
+    line-height: 1.6;
+    transition: all 0.2s ease;
+}
+
+.pricing-features li:hover {
+    padding-left: 8px;
+    color: var(--color-blue-500);
+}
+
+.pricing-card.popular .pricing-features li:hover {
+    color: var(--color-yellow-400);
+}
+
+.pricing-card.popular .btn--primary {
+    background: var(--color-yellow-400);
+    color: var(--text-on-accent);
+    box-shadow: 0 6px 24px rgba(255, 216, 77, 0.4);
+}
+
+.pricing-card.popular .btn--primary:hover {
+    background: var(--color-yellow-500);
+    box-shadow: 0 8px 32px rgba(255, 216, 77, 0.6);
 }
 
 .pricing-features li::before {
-    content: '✓';
+    font-family: 'Font Awesome 6 Free';
+    content: '\f00c';
+    font-weight: 900;
     color: var(--color-green-500);
-    margin-right: 8px;
-    font-weight: 700;
+    margin-right: 12px;
     flex-shrink: 0;
+    font-size: 16px;
+}
+
+@media (max-width: 968px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .pricing-card.popular {
+        transform: scale(1);
+    }
+
+    .pricing-card.popular:hover {
+        transform: translateY(-8px);
+    }
 }
