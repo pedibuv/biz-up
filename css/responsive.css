@@ -44,6 +44,32 @@
         padding: 40px 0 !important;
     }
 
+    .partners-section,
+    .blog-section {
+        padding: 40px 0 !important;
+    }
+
+    .contact-section {
+        padding: 40px 0 !important;
+    }
+
+    .contact-grid {
+        gap: 32px !important;
+    }
+
+    footer {
+        padding: 40px 0 24px !important;
+    }
+
+    .footer-content {
+        gap: 32px !important;
+    }
+
+    .comparison-grid,
+    .comparison-grid--mt-80 {
+        gap: 24px !important;
+    }
+
     .calculator {
         padding: 24px 16px !important;
     }
