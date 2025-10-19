@@ -1083,6 +1083,14 @@
                 grid-template-columns: 1fr;
             }
 
+            .contact-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .contact-form-wrapper {
+                padding: 24px !important;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr;
             }
