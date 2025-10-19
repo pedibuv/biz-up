@@ -43,3 +43,13 @@
     font-size: 28px;
     color: var(--color-white);
 }
+
+@media (min-width: 769px) {
+    .features-swiper .swiper-button-next::after {
+        margin-left: 20px;
+    }
+
+    .features-swiper .swiper-button-prev::after {
+        margin-right: 20px;
+    }
+}
