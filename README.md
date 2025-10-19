@@ -5,6 +5,7 @@ Landing page for BIZ UP business incubator service in Poland. Helps freelancers 
 ## Features
 
 - Responsive navigation with social links and contact info
+- Unified Font Awesome social icons (square variants for visual consistency)
 - Multi-language support (UA, EN, PL, RU)
 - Hero section with call-to-action buttons
 - Interactive feature cards slider (Swiper)
@@ -16,14 +17,15 @@ Landing page for BIZ UP business incubator service in Poland. Helps freelancers 
 - Floating social media sidebar (Telegram, WhatsApp, Viber)
 - Mobile-responsive bottom social bar
 - Smooth scroll animations
+- Custom styled form elements (checkboxes, inputs)
 
 ## Tech Stack
 
-- HTML5 (zero inline styles - full separation of concerns)
-- CSS3 with modular architecture (15 separate files)
+- HTML5 (zero inline styles or inline JS - full separation of concerns)
+- CSS3 with modular architecture (16 separate files)
 - Semantic CSS variables for all colors, gradients, shadows, and spacing
-- Font Awesome 6 Free (70+ icons)
-- Vanilla JavaScript
+- Font Awesome 6 Free (square social icons for consistency)
+- Vanilla JavaScript with event delegation
 - Swiper.js 11 (carousel/slider library)
 
 ## Project Structure
@@ -50,10 +52,12 @@ biz-up/
 │   ├── footer.css          # Footer section
 │   └── responsive.css      # Media queries
 ├── js/
-│   ├── script.js           # Calculator logic and interactions
-│   └── swiper-init.js      # Swiper carousel configurations
+│   ├── script.js           # Calculator logic, event listeners, scroll behavior
+│   ├── swiper-init.js      # Swiper carousel configurations
+│   └── faq.js              # FAQ accordion functionality
 └── img/                    # Image assets folder
     ├── telegram.svg        # Custom white Telegram icon
+    ├── instagram.svg       # Custom Instagram icon (deprecated - using FA)
     └── .gitignore          # Git ignore for images
 ```
 
@@ -68,7 +72,9 @@ The CSS is split into 16 separate files for maintainability:
 - **responsive.css**: All media queries centralized
 
 ### Design System
-- **Zero inline styles** - complete separation of concerns
+- **Zero inline styles or inline JavaScript** - complete separation of concerns
+- **Custom form elements** - styled checkboxes with CSS-only checkmarks
+- **Event delegation** - all event handlers in external JS files
 - **Semantic CSS variables** for all design tokens:
   - Colors: `--color-blue-500`, `--color-telegram`, etc.
   - Gradients: `--gradient-primary`, `--gradient-telegram`, etc.
@@ -77,6 +83,25 @@ The CSS is split into 16 separate files for maintainability:
   - Borders: `--border-white-*`, `--border-input-*`
 - **BEM methodology** for class naming
 - **Mobile-first responsive design**
+
+## JavaScript Architecture
+
+All JavaScript event handlers are externalized in dedicated JS files:
+
+- **script.js**:
+  - Calculator with event listeners for all inputs/selects
+  - Quick amount buttons using `data-amount` attributes
+  - Language switcher
+  - Contact form submission
+  - Smooth scroll navigation
+  - Navigation scroll behavior
+  - Intersection Observer for scroll animations
+
+- **swiper-init.js**: Carousel initialization for features, testimonials, partners
+
+- **faq.js**: FAQ accordion interactions
+
+No inline JavaScript (`onclick`, `oninput`, `onchange`) - all handlers use `addEventListener` for maintainability.
 
 ## Usage
 
