@@ -239,9 +239,9 @@
 
         /* Navigation */
         nav {
-            position: fixed;
+            /*position: fixed;*/
             top: 0;
-            width: 100%;
+            /*width: 100%;*/
             background: rgba(255,255,255,.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
@@ -698,7 +698,7 @@
         }
 
         .pricing-card.popular::before {
-            content: '#/ ';
+            content: 'ПОПУЛЯРНО';
             position: absolute;
             top: -12px;
             left: 50%;
@@ -743,7 +743,7 @@
         }
 
         .pricing-features li::before {
-            content: '';
+            content: '✓';
             color: var(--color-green-500);
             margin-right: 8px;
             font-weight: 700;
