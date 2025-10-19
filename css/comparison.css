@@ -59,3 +59,11 @@
     align-items: center;
     justify-content: center;
 }
+
+.table-icon-check {
+    color: #10b981;
+}
+
+.table-icon-xmark {
+    color: #ef4444;
+}
