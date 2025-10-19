@@ -13,12 +13,16 @@ Landing page for BIZ UP business incubator service in Poland. Helps freelancers 
 - Tax calculations (PIT) with/without VAT support
 - Multiple currency support
 - Comparison between BIZ UP, JDG, and B2B models
+- Floating social media sidebar (Telegram, WhatsApp, Viber)
+- Mobile-responsive bottom social bar
 - Smooth scroll animations
 
 ## Tech Stack
 
-- HTML5
-- CSS3
+- HTML5 (zero inline styles - full separation of concerns)
+- CSS3 with modular architecture (15 separate files)
+- Semantic CSS variables for all colors, gradients, shadows, and spacing
+- Font Awesome 6 Free (70+ icons)
 - Vanilla JavaScript
 - Swiper.js 11 (carousel/slider library)
 
@@ -26,11 +30,12 @@ Landing page for BIZ UP business incubator service in Poland. Helps freelancers 
 
 ```
 biz-up/
-├── index.html              # Main landing page
+├── index.html              # Main landing page (zero inline styles)
 ├── css/
 │   ├── style.css           # Main CSS import file
 │   ├── base.css            # Variables, reset, typography, utilities
-│   ├── components.css      # Buttons, cards, badges, forms
+│   ├── components.css      # Buttons, cards, badges, forms, floating social
+│   ├── fontawesome-custom.css  # Font Awesome icon customizations
 │   ├── navigation.css      # Navigation styles
 │   ├── hero.css            # Hero section
 │   ├── features.css        # Features section
@@ -48,8 +53,30 @@ biz-up/
 │   ├── script.js           # Calculator logic and interactions
 │   └── swiper-init.js      # Swiper carousel configurations
 └── img/                    # Image assets folder
+    ├── telegram.svg        # Custom white Telegram icon
     └── .gitignore          # Git ignore for images
 ```
+
+## CSS Architecture
+
+### Modular Structure
+The CSS is split into 16 separate files for maintainability:
+- **base.css**: 56 semantic CSS variables (colors, gradients, shadows, borders, overlays)
+- **components.css**: Reusable components (buttons, cards, forms, floating social sidebar)
+- **fontawesome-custom.css**: Font Awesome icon customizations
+- **Section files**: Each page section has its own CSS file
+- **responsive.css**: All media queries centralized
+
+### Design System
+- **Zero inline styles** - complete separation of concerns
+- **Semantic CSS variables** for all design tokens:
+  - Colors: `--color-blue-500`, `--color-telegram`, etc.
+  - Gradients: `--gradient-primary`, `--gradient-telegram`, etc.
+  - Shadows: `--shadow-primary`, `--shadow-medium`, etc.
+  - Overlays: `--overlay-white-*`, `--overlay-black-*`
+  - Borders: `--border-white-*`, `--border-input-*`
+- **BEM methodology** for class naming
+- **Mobile-first responsive design**
 
 ## Usage
 
@@ -66,4 +93,6 @@ The calculator supports:
 ## Contact
 
 - Phone: +48 718 808 505
+- Telegram: @we_expert_bot
 - WhatsApp: +48 718 808 505
+- Viber: +48 718 808 505
