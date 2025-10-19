@@ -23,7 +23,7 @@
 
 .contact-icon i {
     font-size: 20px;
-    color: white;
+    color: var(--color-white);
 }
 
 .contact-social-link i {
@@ -32,7 +32,7 @@
 
 .floating-social__link i {
     font-size: 26px;
-    color: #ffffff;
+    color: var(--color-white);
     opacity: 1;
 }
 

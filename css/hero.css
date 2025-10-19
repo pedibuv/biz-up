@@ -3,7 +3,7 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, rgba(58,102,255,.03) 0%, rgba(122,95,255,.03) 100%);
+    background: var(--gradient-primary-light);
 }
 
 .hero-grid {

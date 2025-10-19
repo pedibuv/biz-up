@@ -1,6 +1,6 @@
 footer {
-    background: linear-gradient(135deg, var(--color-blue-500), var(--color-purple-500));
-    color: white;
+    background: var(--gradient-primary);
+    color: var(--color-white);
     padding: 80px 0 40px;
 }
 
@@ -12,7 +12,7 @@ footer {
 }
 
 .footer-section-title {
-    color: white;
+    color: var(--color-white);
     margin-bottom: 16px;
     font-size: 14px;
     text-transform: uppercase;
@@ -26,7 +26,7 @@ footer {
 .footer-copyright {
     padding-top: 32px;
     margin-top: 48px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: var(--border-white-10);
     text-align: center;
     opacity: 0.7;
 }

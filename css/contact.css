@@ -1,5 +1,5 @@
 .contact-section {
-    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    background: var(--gradient-dark);
     padding: 80px 0;
 }
 
@@ -11,11 +11,11 @@
 }
 
 .contact-info {
-    color: white;
+    color: var(--color-white);
 }
 
 .contact-heading {
-    color: white;
+    color: var(--color-white);
     font-size: 42px;
     margin-bottom: 24px;
 }
@@ -83,18 +83,18 @@
 .contact-social-link {
     width: 40px;
     height: 40px;
-    background: rgba(255,255,255,0.1);
+    background: var(--overlay-white-10);
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-white);
     text-decoration: none;
     transition: background 0.3s;
 }
 
 .contact-social-link:hover {
-    background: rgba(255,255,255,0.2);
+    background: var(--overlay-white-20);
 }
 
 .contact-phone-section {
@@ -129,11 +129,11 @@
 }
 
 .contact-form-wrapper {
-    background: rgba(255,255,255,0.05);
+    background: var(--overlay-white-05);
     backdrop-filter: blur(10px);
     border-radius: 24px;
     padding: 40px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: var(--border-white-10);
 }
 
 .contact-form-group {
@@ -142,7 +142,7 @@
 
 .contact-form-label {
     display: block;
-    color: white;
+    color: var(--color-white);
     margin-bottom: 8px;
     font-size: 14px;
     opacity: 0.9;
@@ -151,48 +151,48 @@
 .contact-form-input {
     width: 100%;
     padding: 14px 16px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
+    background: var(--overlay-white-10);
+    border: var(--border-white-20);
     border-radius: 8px;
-    color: white;
+    color: var(--color-white);
     font-size: 16px;
 }
 
 .contact-form-input::placeholder {
-    color: rgba(255,255,255,0.5);
+    color: var(--overlay-white-50);
 }
 
 .contact-form-input:focus {
     outline: none;
-    border-color: rgba(255,255,255,0.4);
-    background: rgba(255,255,255,0.15);
+    border-color: var(--border-input-focused);
+    background: var(--overlay-white-15);
 }
 
 .contact-form-textarea {
     width: 100%;
     padding: 14px 16px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
+    background: var(--overlay-white-10);
+    border: var(--border-white-20);
     border-radius: 8px;
-    color: white;
+    color: var(--color-white);
     font-size: 16px;
     resize: vertical;
 }
 
 .contact-form-textarea::placeholder {
-    color: rgba(255,255,255,0.5);
+    color: var(--overlay-white-50);
 }
 
 .contact-form-textarea:focus {
     outline: none;
-    border-color: rgba(255,255,255,0.4);
-    background: rgba(255,255,255,0.15);
+    border-color: var(--border-input-focused);
+    background: var(--overlay-white-15);
 }
 
 .contact-form-checkbox-label {
     display: flex;
     align-items: flex-start;
-    color: white;
+    color: var(--color-white);
     font-size: 14px;
     opacity: 0.8;
     cursor: pointer;

@@ -7,7 +7,7 @@
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    background: white;
+    background: var(--color-white);
     border-radius: 16px;
     overflow: hidden;
 }
@@ -25,8 +25,8 @@
 }
 
 .table th:nth-child(2) {
-    background: linear-gradient(135deg, var(--color-blue-500), var(--color-purple-500));
-    color: white;
+    background: var(--gradient-primary);
+    color: var(--color-white);
 }
 
 .comparison-grid {
@@ -52,7 +52,7 @@
 }
 
 .comparison-image-placeholder {
-    background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+    background: var(--gradient-gray);
     border-radius: 24px;
     height: 300px;
     display: flex;

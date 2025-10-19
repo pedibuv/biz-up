@@ -1,8 +1,8 @@
 .calculator {
-    background: linear-gradient(135deg, var(--color-blue-500), var(--color-purple-500));
+    background: var(--gradient-primary);
     border-radius: 24px;
     padding: 48px;
-    color: white;
+    color: var(--color-white);
     margin-top: 48px;
 }
 
@@ -28,16 +28,16 @@
 .form-group label {
     margin-bottom: 8px;
     font-weight: 500;
-    color: rgba(255,255,255,0.9);
+    color: var(--overlay-white-90);
 }
 
 .form-group input,
 .form-group select {
     padding: 12px 16px;
-    border: 2px solid rgba(255,255,255,0.2);
+    border: var(--border-input);
     border-radius: 8px;
-    background: rgba(255,255,255,0.1);
-    color: white;
+    background: var(--overlay-white-10);
+    color: var(--color-white);
     font-size: 16px;
     transition: all 0.3s ease;
     -webkit-appearance: none;
@@ -57,22 +57,22 @@
 .form-group input:focus,
 .form-group select:focus {
     outline: none;
-    border-color: rgba(255,255,255,0.5);
-    background: rgba(255,255,255,0.15);
+    border-color: var(--border-input-focus);
+    background: var(--overlay-white-15);
 }
 
 .form-group input::placeholder {
-    color: rgba(255,255,255,0.5);
+    color: var(--overlay-white-50);
 }
 
 .form-group option {
     color: var(--text-primary);
-    background: white;
+    background: var(--color-white);
     padding: 8px;
 }
 
 .calculator .btn:hover {
-    background: rgba(255,255,255,0.3) !important;
+    background: var(--overlay-white-30) !important;
     transform: translateY(-1px);
 }
 
@@ -85,16 +85,16 @@
 .calc-quick-btn {
     flex: 1;
     padding: 8px;
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.3);
+    background: var(--overlay-white-20);
+    border: var(--border-white-20);
     border-radius: 6px;
-    color: white;
+    color: var(--color-white);
     cursor: pointer;
     font-size: 14px;
 }
 
 .calc-options-label {
-    color: white;
+    color: var(--color-white);
     font-weight: 600;
     margin-bottom: 16px;
     display: block;
@@ -103,7 +103,7 @@
 .calc-checkbox-label {
     display: flex;
     align-items: flex-start;
-    color: white;
+    color: var(--color-white);
     margin-bottom: 16px;
     cursor: pointer;
 }
@@ -132,18 +132,18 @@
 .calc-results {
     margin-top: 48px;
     padding: 32px;
-    background: rgba(255,255,255,0.1);
+    background: var(--overlay-white-10);
     border-radius: 16px;
 }
 
 .calc-results__heading {
-    color: white;
+    color: var(--color-white);
     margin-bottom: 24px;
     font-size: 24px;
 }
 
 .calc-results__heading--fs-20 {
-    color: white;
+    color: var(--color-white);
     margin-bottom: 24px;
     font-size: 20px;
 }
@@ -157,7 +157,7 @@
 
 .calc-results__item {
     padding: 16px;
-    background: rgba(255,255,255,0.1);
+    background: var(--overlay-white-10);
     border-radius: 12px;
 }
 
@@ -212,14 +212,14 @@
 .calc-jdg-comparison {
     margin-top: 48px;
     padding: 32px;
-    background: rgba(0,0,0,0.2);
+    background: var(--overlay-black-20);
     border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: var(--border-white-10);
 }
 
 .calc-jdg-result {
     padding: 24px;
-    background: rgba(255,255,255,0.1);
+    background: var(--overlay-white-10);
     border-radius: 12px;
     text-align: center;
 }
