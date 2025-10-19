@@ -98,19 +98,25 @@
     border-radius: 50px;
     font-weight: 600;
     font-size: 15px;
+    color: var(--color-black);
     box-shadow: 0 8px 32px rgba(58, 102, 255, 0.15), 0 2px 8px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.8);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: default;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.1s ease;
+    cursor: pointer;
     animation: float 6s ease-in-out infinite;
 }
 
 .profession-badge:hover {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 16px 48px rgba(58, 102, 255, 0.25), 0 4px 16px rgba(122, 95, 255, 0.2);
-    background: linear-gradient(135deg, var(--color-blue-500), var(--color-purple-500));
-    color: var(--color-white);
-    border-color: rgba(122, 95, 255, 0.5);
+    transform: translateY(-12px) scale(1.15) !important;
+    box-shadow: 0 20px 60px rgba(58, 102, 255, 0.4), 0 8px 24px rgba(122, 95, 255, 0.3) !important;
+    background: linear-gradient(135deg, #3A66FF, #7A5FFF) !important;
+    color: #FFFFFF !important;
+    border: 3px solid #FFD84D !important;
+    animation: none !important;
 }
 
 .profession-badge:nth-child(1) { animation-delay: 0s; }
