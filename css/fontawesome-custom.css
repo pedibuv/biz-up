@@ -10,11 +10,11 @@
     transition: transform 0.2s, color 0.2s;
 }
 
-.nav-top-socials .fa-facebook {
+.nav-top-socials .fa-square-facebook {
     color: #1877F2;
 }
 
-.nav-top-socials .fa-instagram {
+.nav-top-socials .fa-square-instagram {
     color: #E4405F;
 }
 
