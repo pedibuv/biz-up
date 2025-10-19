@@ -1,0 +1,210 @@
+.contact-section {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    padding: 80px 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.contact-info {
+    color: white;
+}
+
+.contact-heading {
+    color: white;
+    font-size: 42px;
+    margin-bottom: 24px;
+}
+
+.contact-description {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 32px;
+}
+
+.contact-details {
+    margin-top: 48px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--color-blue-500);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+}
+
+.contact-icon--purple {
+    background: var(--color-purple-500);
+}
+
+.contact-icon-emoji {
+    font-size: 20px;
+}
+
+.contact-label {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.contact-value {
+    font-size: 16px;
+}
+
+.contact-social-section {
+    margin-top: 32px;
+}
+
+.contact-social-label {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 12px;
+}
+
+.contact-social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.contact-social-link {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.contact-social-link:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.contact-phone-section {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.contact-phone-label {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.contact-phone-link {
+    color: var(--color-yellow-400);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.contact-telegram-section {
+    margin-top: 20px;
+}
+
+.contact-telegram-link {
+    color: var(--color-blue-500);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-form-wrapper {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-form-group {
+    margin-bottom: 24px;
+}
+
+.contact-form-label {
+    display: block;
+    color: white;
+    margin-bottom: 8px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.contact-form-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+}
+
+.contact-form-input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.contact-form-input:focus {
+    outline: none;
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.15);
+}
+
+.contact-form-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.contact-form-textarea::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.contact-form-textarea:focus {
+    outline: none;
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.15);
+}
+
+.contact-form-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    color: white;
+    font-size: 14px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.contact-form-checkbox {
+    margin-right: 12px;
+    margin-top: 4px;
+}
+
+.contact-form-submit {
+    width: 100%;
+    background: var(--color-blue-500);
+    border: none;
+}
