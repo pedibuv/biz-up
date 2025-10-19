@@ -70,6 +70,14 @@
         gap: 24px !important;
     }
 
+    .comparison-grid--mt-80 {
+        margin-top: 32px !important;
+    }
+
+    .comparison-image-placeholder {
+        display: none !important;
+    }
+
     .calculator {
         padding: 24px 16px !important;
     }
