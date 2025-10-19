@@ -1,0 +1,50 @@
+.fa-brands,
+.fa-solid,
+.fa-regular {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.nav-top-socials i {
+    transition: transform 0.2s, color 0.2s;
+}
+
+.nav-top-socials a:hover i {
+    transform: scale(1.1);
+}
+
+.nav-top-phone i {
+    color: var(--color-blue-500);
+}
+
+.feature-icon i {
+    font-size: 32px;
+}
+
+.contact-icon i {
+    font-size: 20px;
+    color: white;
+}
+
+.contact-social-link i {
+    font-size: 20px;
+}
+
+.floating-social__link i {
+    font-size: 20px;
+    color: white;
+}
+
+.comparison-table i.fa-circle-check {
+    font-size: 20px;
+}
+
+.comparison-table i.fa-circle-xmark {
+    font-size: 20px;
+}
+
+.pricing-features i.fa-circle {
+    font-size: 8px;
+    margin-right: 8px;
+    color: var(--color-purple-500);
+}

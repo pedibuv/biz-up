@@ -144,3 +144,71 @@ option {
     color: var(--text-on-accent);
     border: none;
 }
+
+.floating-social {
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.floating-social__link {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--tr-med);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+}
+
+.floating-social__link:hover {
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.floating-social__link--telegram {
+    background: linear-gradient(135deg, #29b6f6 0%, #1e88e5 100%);
+}
+
+.floating-social__link--whatsapp {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+}
+
+.floating-social__link--viber {
+    background: linear-gradient(135deg, #7c4dff 0%, #5e35b1 100%);
+}
+
+@media (max-width: 768px) {
+    .floating-social {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: auto;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
+        gap: 24px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 12px 0;
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .floating-social__link {
+        width: 56px;
+        height: 56px;
+    }
+
+    .floating-social__link:hover {
+        transform: scale(1.1);
+    }
+}
