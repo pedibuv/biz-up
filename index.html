@@ -292,16 +292,15 @@
             <div class="calc-form">
                 <div class="form-group">
                     <label>Сума замовлення (без ПДВ)</label>
-                    <input type="number" id="amount" min="0" step="50" placeholder="Наприклад: 10000" value="10000"
-                           oninput="recalc()">
+                    <input type="number" id="amount" min="0" step="50" placeholder="Наприклад: 10000" value="10000">
                     <div class="calc-quick-btn-group">
-                        <button onclick="setAmount(5000)" class="btn calc-quick-btn">
+                        <button data-amount="5000" class="btn calc-quick-btn">
                             5 000
                         </button>
-                        <button onclick="setAmount(10000)" class="btn calc-quick-btn">
+                        <button data-amount="10000" class="btn calc-quick-btn">
                             10 000
                         </button>
-                        <button onclick="setAmount(20000)" class="btn calc-quick-btn">
+                        <button data-amount="20000" class="btn calc-quick-btn">
                             20 000
                         </button>
                     </div>
@@ -309,7 +308,7 @@
 
                 <div class="form-group">
                     <label>Валюта</label>
-                    <select id="currency" onchange="recalc()">
+                    <select id="currency">
                         <option value="PLN">PLN</option>
                         <option value="EUR">EUR</option>
                         <option value="USD">USD</option>
@@ -318,7 +317,7 @@
 
                 <div class="form-group">
                     <label>План BIZ UP</label>
-                    <select id="plan" onchange="recalc()">
+                    <select id="plan">
                         <option value="basic">Basic — 289 zł/міс</option>
                         <option value="standard">Standard — 489 zł/міс</option>
                         <option value="pro">Professional — 769 zł/міс</option>
@@ -331,7 +330,7 @@
                     розрахунку</label>
 
                 <label class="calc-checkbox-label">
-                    <input id="withVAT" type="checkbox" onchange="recalc()" class="calc-checkbox">
+                    <input id="withVAT" type="checkbox" class="calc-checkbox">
                     <div>
                         <div class="calc-checkbox-title">Робота з фіз. особами / Польським юр. особою</div>
                         <div class="calc-checkbox-desc">Якщо відмічено — додамо VAT 23% до
@@ -341,7 +340,7 @@
                 </label>
 
                 <label class="calc-checkbox-label">
-                    <input id="transferIP" type="checkbox" onchange="recalc()" class="calc-checkbox">
+                    <input id="transferIP" type="checkbox" class="calc-checkbox">
                     <div>
                         <div class="calc-checkbox-title">Передача авторських прав</div>
                         <div class="calc-checkbox-desc">Якщо відмічено — застосуємо PIT 6%.
@@ -400,7 +399,7 @@
                 <div class="jdg-form-grid">
                     <div class="form-group">
                         <label>Режим оподаткування</label>
-                        <select id="jdgPreset" onchange="jdgApplyPreset(); recalc();">
+                        <select id="jdgPreset">
                             <option value="scale">Шкала (спрощено 12%)</option>
                             <option value="linear">Лінійний 19%</option>
                             <option value="ryczalt85">Ryczałt 8.5%</option>
@@ -410,11 +409,11 @@
                     </div>
                     <div class="form-group">
                         <label>Ставка PIT для JDG (%)</label>
-                        <input id="jdgRate" type="number" min="0" max="50" step="0.1" value="12" oninput="recalc()">
+                        <input id="jdgRate" type="number" min="0" max="50" step="0.1" value="12">
                     </div>
                     <div class="form-group">
                         <label>Місячні внески ZUS (PLN)</label>
-                        <input id="jdgZUS" type="number" min="0" step="1" value="1418" oninput="recalc()">
+                        <input id="jdgZUS" type="number" min="0" step="1" value="1418">
                     </div>
                 </div>
 
@@ -429,9 +428,7 @@
                 </p>
             </div>
 
-            <button onclick="document.getElementById('signup').scrollIntoView({behavior: 'smooth'})"
-                    class="btn btn--primary btn--lg"
-                    class="submit-btn-yellow">
+            <button id="calcConsultBtn" class="btn btn--primary btn--lg submit-btn-yellow">
                 Отримати консультацію
             </button>
         </div>
@@ -448,7 +445,8 @@
                 <div class="swiper-slide">
                     <div class="card">
                         <p class="section-heading">
-                            "Працював через Useme, платив 7,8% комісії. У BIZ UP плачу лише 349 zł/міс. Економія понад 4500 zł на рік."
+                            "Працював через Useme, платив 7,8% комісії. У BIZ UP плачу лише 349 zł/міс. Економія понад
+                            4500 zł на рік."
                         </p>
                         <div class="text-blue-semibold">Артем, фронтенд-розробник</div>
                     </div>
@@ -472,7 +470,8 @@
                 <div class="swiper-slide">
                     <div class="card">
                         <p class="section-heading">
-                            "Перейшов з JDG на BIZ UP - забув про ZUS та паперову тяганину. Тепер просто працюю і отримую гроші."
+                            "Перейшов з JDG на BIZ UP - забув про ZUS та паперову тяганину. Тепер просто працюю і
+                            отримую гроші."
                         </p>
                         <div class="text-blue-semibold">Ігор, бекенд-розробник</div>
                     </div>
@@ -480,7 +479,8 @@
                 <div class="swiper-slide">
                     <div class="card">
                         <p class="section-heading">
-                            "Виставляю рахунки клієнтам в EUR, виплати отримую наступного дня. Ідеальна схема для віддаленої роботи."
+                            "Виставляю рахунки клієнтам в EUR, виплати отримую наступного дня. Ідеальна схема для
+                            віддаленої роботи."
                         </p>
                         <div class="text-blue-semibold">Марина, контент-менеджер</div>
                     </div>
@@ -488,7 +488,8 @@
                 <div class="swiper-slide">
                     <div class="card">
                         <p class="section-heading">
-                            "Працюю з США через Upwork. BIZ UP дозволив легально приймати платежі без відкриття власної фірми."
+                            "Працюю з США через Upwork. BIZ UP дозволив легально приймати платежі без відкриття власної
+                            фірми."
                         </p>
                         <div class="text-blue-semibold">Дмитро, DevOps інженер</div>
                     </div>
@@ -496,7 +497,8 @@
                 <div class="swiper-slide">
                     <div class="card">
                         <p class="section-heading">
-                            "Отримала медпакет LUXMED та Multisport в рамках тарифу. Раніше платила за це окремо 400 zł."
+                            "Отримала медпакет LUXMED та Multisport в рамках тарифу. Раніше платила за це окремо 400
+                            zł."
                         </p>
                         <div class="text-blue-semibold">Тетяна, графічний дизайнер</div>
                     </div>
@@ -512,7 +514,8 @@
                 <div class="swiper-slide">
                     <div class="card">
                         <p class="section-heading">
-                            "Wcześniej miałem JDG - płaciłem 1300 zł miesięcznie na ZUS. Teraz oszczędzam ponad 10000 zł rocznie."
+                            "Wcześniej miałem JDG - płaciłem 1300 zł miesięcznie na ZUS. Teraz oszczędzam ponad 10000 zł
+                            rocznie."
                         </p>
                         <div class="text-blue-semibold">Marcin, programista Python</div>
                     </div>
@@ -520,7 +523,8 @@
                 <div class="swiper-slide">
                     <div class="card">
                         <p class="section-heading">
-                            "Prowadzę małą agencję marketingową. BIZ UP pozwolił mi skalować biznes bez komplikacji prawnych."
+                            "Prowadzę małą agencję marketingową. BIZ UP pozwolił mi skalować biznes bez komplikacji
+                            prawnych."
                         </p>
                         <div class="text-blue-semibold">Kasia, digital marketing manager</div>
                     </div>
@@ -536,7 +540,8 @@
                 <div class="swiper-slide">
                     <div class="card">
                         <p class="section-heading">
-                            "Potrzebowałem dokumentów do karty pobytu - dostałem wszystko w 2 dni. Profesjonalna obsługa."
+                            "Potrzebowałem dokumentów do karty pobytu - dostałem wszystko w 2 dni. Profesjonalna
+                            obsługa."
                         </p>
                         <div class="text-blue-semibold">Anna, tłumaczka</div>
                     </div>
@@ -560,7 +565,8 @@
                 <div class="swiper-slide">
                     <div class="card">
                         <p class="section-heading">
-                            "Been with BIZ UP for 2 years. Fast payouts, legal compliance, zero hassle. Highly recommend."
+                            "Been with BIZ UP for 2 years. Fast payouts, legal compliance, zero hassle. Highly
+                            recommend."
                         </p>
                         <div class="text-blue-semibold">David, project manager</div>
                     </div>
@@ -717,84 +723,112 @@
                 <tbody>
                 <tr>
                     <td>Доступ до CRM-системи</td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
                 </tr>
                 <tr>
                     <td>Особисті субрахунки</td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
                 </tr>
                 <tr>
                     <td>Мультивалюта (PLN/EUR/USD)</td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
                 </tr>
                 <tr>
                     <td>Медстрахування / бенефіти</td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
                 </tr>
                 <tr>
                     <td>Freeze акаунту</td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                 </tr>
                 <tr>
                     <td>Виплати команді</td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                 </tr>
                 <tr>
                     <td>Виплати T+1</td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                 </tr>
                 <tr>
                     <td>Опція D+0 (same-day)</td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                 </tr>
                 <tr>
                     <td>Доходи в криптовалюті</td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
                 </tr>
                 <tr>
                     <td>Оренда офісу / коворкінгу</td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                 </tr>
                 <tr>
                     <td>Окремий акаунт-менеджер</td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                 </tr>
                 <tr>
                     <td>Q&A з юристом/бухгалтером</td>
-                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span></td>
+                    <td><span class="text-green-bold"><i class="fa-solid fa-circle-check table-icon-check"></i></span>
+                    </td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
                     <td><span class="text-red"><i class="fa-solid fa-circle-xmark table-icon-xmark"></i></span></td>
@@ -900,194 +934,252 @@
         <div class="faq max-w-800-mx-auto-mt-48">
             <details class="faq-item">
                 <summary class="faq-btn">Чи легально працювати через BIZ UP?</summary>
-                <div class="faq-panel"><div>Так. Ти укладаєш цивільно-правовий договір з інкубатором і виставляєш рахунки в
-                    межах цієї угоди. Інкубатор адмініструє виплати та податкову звітність, тож діяльність відбувається
-                    на законних підставах у Польщі.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Так. Ти укладаєш цивільно-правовий договір з інкубатором і виставляєш рахунки в
+                        межах цієї угоди. Інкубатор адмініструє виплати та податкову звітність, тож діяльність
+                        відбувається
+                        на законних підставах у Польщі.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Чим BIZ UP відрізняється від JDG?</summary>
-                <div class="faq-panel"><div>У JDG ти реєструєш власну діяльність і щомісяця сплачуєш ZUS, ведеш облік і
-                    звітність. У моделі інкубатора цього не потрібно: ти користуєшся юридичною "парасолькою" BIZ UP,
-                    платиш фіксовану абонплату та зосереджуєшся на роботі та клієнтах.
-                </div></div>
+                <div class="faq-panel">
+                    <div>У JDG ти реєструєш власну діяльність і щомісяця сплачуєш ZUS, ведеш облік і
+                        звітність. У моделі інкубатора цього не потрібно: ти користуєшся юридичною "парасолькою" BIZ UP,
+                        платиш фіксовану абонплату та зосереджуєшся на роботі та клієнтах.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Чи всі можуть платити 6% PIT?</summary>
-                <div class="faq-panel"><div>Ні. Знижена ставка застосовується лише до окремих видів "авторських" договорів і
-                    не підходить для будь-якого типу послуг. Ми допомагаємо визначити, чи підпадає твоя робота під цю
-                    категорію, і запропонуємо коректний формат оподаткування.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Ні. Знижена ставка застосовується лише до окремих видів "авторських" договорів і
+                        не підходить для будь-якого типу послуг. Ми допомагаємо визначити, чи підпадає твоя робота під
+                        цю
+                        категорію, і запропонуємо коректний формат оподаткування.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Що з KSeF після 2026 року?</summary>
-                <div class="faq-panel"><div>З 2026 року електронна фактура через KSeF стане обов'язковим стандартом у Польщі.
-                    BIZ UP уже готує клієнтів: формати документів, валідація та процеси адаптовані під перехід, щоби ти
-                    працював без збоїв.
-                </div></div>
+                <div class="faq-panel">
+                    <div>З 2026 року електронна фактура через KSeF стане обов'язковим стандартом у Польщі.
+                        BIZ UP уже готує клієнтів: формати документів, валідація та процеси адаптовані під перехід, щоби
+                        ти
+                        працював без збоїв.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Які податки я плачу?</summary>
-                <div class="faq-panel"><div>Податок на доходи (PIT) відповідно до польського законодавства, з урахуванням
-                    типу договору та твого статусу. Ми формуємо коректні документи й надаємо інструкції, щоб податкове
-                    навантаження було прогнозованим і законним.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Податок на доходи (PIT) відповідно до польського законодавства, з урахуванням
+                        типу договору та твого статусу. Ми формуємо коректні документи й надаємо інструкції, щоб
+                        податкове
+                        навантаження було прогнозованим і законним.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Що таке ZUS і навіщо він потрібен?</summary>
-                <div class="faq-panel"><div>ZUS — це система соціального страхування (пенсія, лікарняні тощо). У моделі
-                    інкубатора ти не зобов'язаний сплачувати щомісячний ZUS як підприємець-JDG; соціальні опції
-                    покриваються залежно від обраного тарифу/пакету.
-                </div></div>
+                <div class="faq-panel">
+                    <div>ZUS — це система соціального страхування (пенсія, лікарняні тощо). У моделі
+                        інкубатора ти не зобов'язаний сплачувати щомісячний ZUS як підприємець-JDG; соціальні опції
+                        покриваються залежно від обраного тарифу/пакету.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">На чому полягає інкубатор підприємництва?</summary>
-                <div class="faq-panel"><div>Це юридична та операційна "оболонка", у межах якої фрілансери та спеціалісти
-                    легально виставляють рахунки без реєстрації власної фірми. Інкубатор бере на себе документообіг,
-                    виплати й комплаєнс.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Це юридична та операційна "оболонка", у межах якої фрілансери та спеціалісти
+                        легально виставляють рахунки без реєстрації власної фірми. Інкубатор бере на себе документообіг,
+                        виплати й комплаєнс.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Чи вигідно користуватися інкубатором?</summary>
-                <div class="faq-panel"><div>Так, особливо на старті або при нерегулярних доходах. Ти уникаєш витрат і
-                    бюрократії JDG (реєстрація, ZUS, бухгалтерія), отримуєш мультивалютні рахунки та швидкі виплати за
-                    фіксовану абонплату.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Так, особливо на старті або при нерегулярних доходах. Ти уникаєш витрат і
+                        бюрократії JDG (реєстрація, ZUS, бухгалтерія), отримуєш мультивалютні рахунки та швидкі виплати
+                        за
+                        фіксовану абонплату.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Чому інші інкубатори дешевші за ваш?</summary>
-                <div class="faq-panel"><div>Часто вони не включають розширені сервіси: юридичні консультації, медичні
-                    бенефіти, швидкі виплати з SLA чи командні інструменти. Наш підхід — менше прихованих витрат і
-                    більше реальної підтримки "під ключ".
-                </div></div>
+                <div class="faq-panel">
+                    <div>Часто вони не включають розширені сервіси: юридичні консультації, медичні
+                        бенефіти, швидкі виплати з SLA чи командні інструменти. Наш підхід — менше прихованих витрат і
+                        більше реальної підтримки "під ключ".
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Для кого підходить інкубатор?</summary>
-                <div class="faq-panel"><div>Для фрілансерів і фахівців у сферах ІТ, маркетингу, креативу, освіти, а також для
-                    експатів. Підійде і тим, хто тестує нішу перед відкриттям власної компанії.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Для фрілансерів і фахівців у сферах ІТ, маркетингу, креативу, освіти, а також для
+                        експатів. Підійде і тим, хто тестує нішу перед відкриттям власної компанії.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Чи можна поєднувати з офіційною роботою?</summary>
-                <div class="faq-panel"><div>Так. Співпраця з інкубатором не заважає вашій найманій роботі; головне — прозоро
-                    оформити доходи та дотримуватись умов вашого трудового договору.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Так. Співпраця з інкубатором не заважає вашій найманій роботі; головне — прозоро
+                        оформити доходи та дотримуватись умов вашого трудового договору.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Як розпочати співпрацю?</summary>
-                <div class="faq-panel"><div>Заповніть коротку заявку, пройдіть онлайн-верифікацію й підпишіть договір
-                    електронно. Далі ви відразу можете виставляти інвойси через кабінет.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Заповніть коротку заявку, пройдіть онлайн-верифікацію й підпишіть договір
+                        електронно. Далі ви відразу можете виставляти інвойси через кабінет.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Скільки часу займає реєстрація/активація?</summary>
-                <div class="faq-panel"><div>Близько 10 хвилин на онлайн-реєстрацію та до 1—2 робочих днів на активацію
-                    профілю (KYC/договір). Після активації всі інструменти доступні відразу.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Близько 10 хвилин на онлайн-реєстрацію та до 1—2 робочих днів на активацію
+                        профілю (KYC/договір). Після активації всі інструменти доступні відразу.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Чи сам виставляю рахунки і де?</summary>
-                <div class="faq-panel"><div>Так, у вашому особистому кабінеті BIZ UP. Система підкаже обов'язкові поля,
-                    валюту, реквізити та збереже шаблони клієнтів.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Так, у вашому особистому кабінеті BIZ UP. Система підкаже обов'язкові поля,
+                        валюту, реквізити та збереже шаблони клієнтів.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Що є результатом роботи і в якій формі?</summary>
-                <div class="faq-panel"><div>Залежно від проєкту це може бути інвойс (рахунок-фактура) або авторський
-                    договір/акт виконаних робіт. Ми підкажемо оптимальний формат і підготуємо шаблони.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Залежно від проєкту це може бути інвойс (рахунок-фактура) або авторський
+                        договір/акт виконаних робіт. Ми підкажемо оптимальний формат і підготуємо шаблони.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Куди надходять гроші і в яких валютах?</summary>
-                <div class="faq-panel"><div>На ваш банківський рахунок. Доступна мультивалюта (PLN/EUR/USD), а для команд —
-                    субрахунки та додаткові платіжні опції за тарифом.
-                </div></div>
+                <div class="faq-panel">
+                    <div>На ваш банківський рахунок. Доступна мультивалюта (PLN/EUR/USD), а для команд —
+                        субрахунки та додаткові платіжні опції за тарифом.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Які строки виплат?</summary>
-                <div class="faq-panel"><div>Стандарт — T+1 (наступний банківський день) після підтвердження документів і
-                    оплати від клієнта. У вищих тарифах доступний пріоритет та додаткові опції прискорення.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Стандарт — T+1 (наступний банківський день) після підтвердження документів і
+                        оплати від клієнта. У вищих тарифах доступний пріоритет та додаткові опції прискорення.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Чи можна отримати ВНЖ/карту побиту з інкубатором?</summary>
-                <div class="faq-panel"><div>Так. Допомагаємо з підготовкою документів і довідок; у деяких тарифах діють
-                    знижки на супровід. Це спрощує легалізацію для фрілансерів та команд.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Так. Допомагаємо з підготовкою документів і довідок; у деяких тарифах діють
+                        знижки на супровід. Це спрощує легалізацію для фрілансерів та команд.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Blue Card: чи можу податися і коли починати процес?</summary>
-                <div class="faq-panel"><div>Так, співпраця з інкубатором може надати потрібне документальне підтвердження.
-                    Починати варто відразу після підписання договору, щоб вчасно зібрати пакет.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Так, співпраця з інкубатором може надати потрібне документальне підтвердження.
+                        Починати варто відразу після підписання договору, щоб вчасно зібрати пакет.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Авторські права в разі "авторського" договору (6% PIT)?</summary>
-                <div class="faq-panel"><div>Авторські права на результат лишаються у вас, якщо інше не передбачено договором
-                    із замовником. Інкубатор лише адмініструє документи, виплати та податки.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Авторські права на результат лишаються у вас, якщо інше не передбачено договором
+                        із замовником. Інкубатор лише адмініструє документи, виплати та податки.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Скільки коштує допомога інкубатора?</summary>
-                <div class="faq-panel"><div>Оплачується фіксована щомісячна абонплата за обраним планом
-                    (Basic/Standard/Professional/Teams). Немає комісії від обороту — витрати прогнозовані.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Оплачується фіксована щомісячна абонплата за обраним планом
+                        (Basic/Standard/Professional/Teams). Немає комісії від обороту — витрати прогнозовані.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Чи плата залежить від доходів?</summary>
-                <div class="faq-panel"><div>Ні. Ти платиш за пакет послуг, а не відсоток від суми інвойсів — це вигідно при
-                    зростанні обороту.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Ні. Ти платиш за пакет послуг, а не відсоток від суми інвойсів — це вигідно при
+                        зростанні обороту.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Що входить у щомісячний платіж, а що — додатково?</summary>
-                <div class="faq-panel"><div>У межах пакета — інвойсинг, бухгалтерія, юридична базова підтримка та інше
-                    (залежить від тарифу). Додаткові опції (прискорені виплати, розширена юр підтримка, офіс/коворкінг)
-                    підключаються окремо.
-                </div></div>
+                <div class="faq-panel">
+                    <div>У межах пакета — інвойсинг, бухгалтерія, юридична базова підтримка та інше
+                        (залежить від тарифу). Додаткові опції (прискорені виплати, розширена юр підтримка,
+                        офіс/коворкінг)
+                        підключаються окремо.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Чи можу використовувати власний бренд/логотип?</summary>
-                <div class="faq-panel"><div>Так. Документи та комунікація із замовником можуть містити ваш бренд; інкубатор
-                    працює "у тіні" як бек-офіс.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Так. Документи та комунікація із замовником можуть містити ваш бренд; інкубатор
+                        працює "у тіні" як бек-офіс.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Чи доступні послуги іншими мовами?</summary>
-                <div class="faq-panel"><div>Так, підтримуємо кілька мов (укр., англ., польська). Це спрощує роботу з
-                    міжнародними клієнтами та командами.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Так, підтримуємо кілька мов (укр., англ., польська). Це спрощує роботу з
+                        міжнародними клієнтами та командами.
+                    </div>
+                </div>
             </details>
 
             <details class="faq-item">
                 <summary class="faq-btn">Чи є нетворкінг і навчання?</summary>
-                <div class="faq-panel"><div>Так. Проводимо консультації, воркшопи та Q&A-сесії; є можливості для нетворкінгу
-                    всередині спільноти, що допомагає з пошуком партнерів і клієнтів.
-                </div></div>
+                <div class="faq-panel">
+                    <div>Так. Проводимо консультації, воркшопи та Q&A-сесії; є можливості для нетворкінгу
+                        всередині спільноти, що допомагає з пошуком партнерів і клієнтів.
+                    </div>
+                </div>
             </details>
         </div>
     </div>
@@ -1129,7 +1221,7 @@
                         <div class="contact-social-label">Підписатись</div>
                         <div class="contact-social-links">
                             <a href="https://t.me/we_expert_bot" target="_blank" class="contact-social-link">
-                                    <span><i class="fa-brands fa-telegram telegram-icon"></i></span>
+                                <span><i class="fa-brands fa-telegram telegram-icon"></i></span>
                             </a>
                             <a href="#" class="contact-social-link">
                                 <span><i class="fa-solid fa-envelope"></i></span>
@@ -1146,7 +1238,7 @@
 
                     <div class="contact-telegram-section">
                         <a href="https://t.me/we_expert_bot" target="_blank" class="contact-telegram-link">
-                                <span><i class="fa-brands fa-telegram telegram-icon-large"></i></span> @we_expert_bot
+                            <span><i class="fa-brands fa-telegram telegram-icon-large"></i></span> @we_expert_bot
                         </a>
                     </div>
                 </div>
@@ -1206,7 +1298,7 @@
                 </p>
                 <div class="mt-24">
                     <p class="mb-12--dim"><strong>Телефон:</strong> <a href="tel:+48718808505"
-                                                                                               class="text-white-link">+48
+                                                                       class="text-white-link">+48
                         718 808 505</a></p>
                     <p class="mb-12--dim"><strong>Telegram:</strong> <a
                             href="https://t.me/we_expert_bot" target="_blank"
@@ -1218,16 +1310,16 @@
                     Продукт</h4>
                 <ul class="footer-links-list">
                     <li class="mb-12"><a href="#features"
-                                                        class="text-white-link--dim">Функції</a>
+                                         class="text-white-link--dim">Функції</a>
                     </li>
                     <li class="mb-12"><a href="#pricing"
-                                                        class="text-white-link--dim">Тарифи</a>
+                                         class="text-white-link--dim">Тарифи</a>
                     </li>
                     <li class="mb-12"><a href="#"
-                                                        class="text-white-link--dim">API</a>
+                                         class="text-white-link--dim">API</a>
                     </li>
                     <li class="mb-12"><a href="#"
-                                                        class="text-white-link--dim">Інтеграції</a>
+                                         class="text-white-link--dim">Інтеграції</a>
                     </li>
                 </ul>
             </div>
@@ -1236,16 +1328,16 @@
                     Компанія</h4>
                 <ul class="footer-links-list">
                     <li class="mb-12"><a href="#"
-                                                        class="text-white-link--dim">Про
+                                         class="text-white-link--dim">Про
                         нас</a></li>
                     <li class="mb-12"><a href="#blog"
-                                                        class="text-white-link--dim">Блог</a>
+                                         class="text-white-link--dim">Блог</a>
                     </li>
                     <li class="mb-12"><a href="#"
-                                                        class="text-white-link--dim">Кар'єра</a>
+                                         class="text-white-link--dim">Кар'єра</a>
                     </li>
                     <li class="mb-12"><a href="#signup"
-                                                        class="text-white-link--dim">Контакти</a>
+                                         class="text-white-link--dim">Контакти</a>
                     </li>
                 </ul>
             </div>
@@ -1254,16 +1346,16 @@
                     Підтримка</h4>
                 <ul class="footer-links-list">
                     <li class="mb-12"><a href="#faq"
-                                                        class="text-white-link--dim">FAQ</a>
+                                         class="text-white-link--dim">FAQ</a>
                     </li>
                     <li class="mb-12"><a href="#"
-                                                        class="text-white-link--dim">Privacy
+                                         class="text-white-link--dim">Privacy
                         Policy</a></li>
                     <li class="mb-12"><a href="#"
-                                                        class="text-white-link--dim">Terms</a>
+                                         class="text-white-link--dim">Terms</a>
                     </li>
                     <li class="mb-12"><a href="#"
-                                                        class="text-white-link--dim">Cookies</a>
+                                         class="text-white-link--dim">Cookies</a>
                     </li>
                 </ul>
             </div>
@@ -1275,13 +1367,16 @@
 </footer>
 
 <div class="floating-social">
-    <a href="https://t.me/we_expert_bot" target="_blank" class="floating-social__link floating-social__link--telegram" title="Telegram">
+    <a href="https://t.me/we_expert_bot" target="_blank" class="floating-social__link floating-social__link--telegram"
+       title="Telegram">
         <img src="img/telegram.svg" alt="Telegram" class="floating-social__icon">
     </a>
-    <a href="https://wa.me/48718808505" target="_blank" class="floating-social__link floating-social__link--whatsapp" title="WhatsApp">
+    <a href="https://wa.me/48718808505" target="_blank" class="floating-social__link floating-social__link--whatsapp"
+       title="WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
-    <a href="viber://chat?number=%2B48718808505" target="_blank" class="floating-social__link floating-social__link--viber" title="Viber">
+    <a href="viber://chat?number=%2B48718808505" target="_blank"
+       class="floating-social__link floating-social__link--viber" title="Viber">
         <i class="fa-brands fa-viber"></i>
     </a>
 </div>

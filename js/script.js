@@ -171,3 +171,28 @@ const observer = new IntersectionObserver(function(entries) {
 document.querySelectorAll('.feature-card, .card, .pricing-card, .blog-card').forEach(el => {
     observer.observe(el);
 });
+
+document.getElementById('amount')?.addEventListener('input', recalc);
+document.getElementById('currency')?.addEventListener('change', recalc);
+document.getElementById('plan')?.addEventListener('change', recalc);
+document.getElementById('withVAT')?.addEventListener('change', recalc);
+document.getElementById('transferIP')?.addEventListener('change', recalc);
+document.getElementById('jdgPreset')?.addEventListener('change', function() {
+    jdgApplyPreset();
+    recalc();
+});
+document.getElementById('jdgRate')?.addEventListener('input', recalc);
+document.getElementById('jdgZUS')?.addEventListener('input', recalc);
+
+document.querySelectorAll('.calc-quick-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const amount = this.dataset.amount;
+        if (amount) {
+            setAmount(Number(amount));
+        }
+    });
+});
+
+document.getElementById('calcConsultBtn')?.addEventListener('click', function() {
+    document.getElementById('signup')?.scrollIntoView({behavior: 'smooth'});
+});
