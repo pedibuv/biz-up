@@ -26,14 +26,29 @@ Landing page for BIZ UP business incubator service in Poland. Helps freelancers 
 
 ```
 biz-up/
-├── index.html           # Main landing page
+├── index.html              # Main landing page
 ├── css/
-│   └── style.css        # Styling and responsive design
+│   ├── style.css           # Main CSS import file
+│   ├── base.css            # Variables, reset, typography, utilities
+│   ├── components.css      # Buttons, cards, badges, forms
+│   ├── navigation.css      # Navigation styles
+│   ├── hero.css            # Hero section
+│   ├── features.css        # Features section
+│   ├── partners.css        # Partners section
+│   ├── calculator.css      # Calculator and JDG comparison
+│   ├── pricing.css         # Pricing section
+│   ├── comparison.css      # Comparison tables
+│   ├── blog.css            # Blog section
+│   ├── testimonials.css    # Testimonials section
+│   ├── faq.css             # FAQ section
+│   ├── contact.css         # Contact form section
+│   ├── footer.css          # Footer section
+│   └── responsive.css      # Media queries
 ├── js/
-│   ├── script.js        # Calculator logic and interactions
-│   └── swiper-init.js   # Swiper carousel configurations
-└── img/                 # Image assets folder
-    └── .gitignore       # Git ignore for images
+│   ├── script.js           # Calculator logic and interactions
+│   └── swiper-init.js      # Swiper carousel configurations
+└── img/                    # Image assets folder
+    └── .gitignore          # Git ignore for images
 ```
 
 ## Usage
