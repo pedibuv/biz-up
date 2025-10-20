@@ -137,8 +137,8 @@
 
 .calc-checkbox:checked + div::before,
 .calc-checkbox-label:has(.calc-checkbox:checked)::before {
-    background: var(--color-blue-500);
-    border-color: var(--color-blue-500);
+    background: #4266FF;
+    border-color: #4266FF;
 }
 
 .calc-checkbox:checked + div::after,
