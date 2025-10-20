@@ -1,9 +1,14 @@
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+.pricing-swiper {
     margin-top: 48px;
+}
+
+.pricing-swiper .swiper-wrapper {
     align-items: stretch;
+}
+
+.pricing-swiper .swiper-slide {
+    height: auto;
+    display: flex;
 }
 
 .pricing-card {
@@ -19,6 +24,8 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 
 .pricing-card .pricing-features {
@@ -182,17 +189,39 @@
     font-size: 16px;
 }
 
-@media (max-width: 968px) {
-    .pricing-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
+@media (max-width: 768px) {
     .pricing-card.popular {
         transform: scale(1);
     }
 
     .pricing-card.popular:hover {
         transform: translateY(-8px);
+    }
+
+    .pricing-swiper .swiper-pagination {
+        position: relative;
+        bottom: auto;
+        margin-top: 24px;
+    }
+
+    .pricing-swiper .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: rgba(58, 102, 255, 0.3);
+        opacity: 1;
+        border: 2px solid var(--color-blue-500);
+        margin: 0 6px;
+    }
+
+    .pricing-swiper .swiper-pagination-bullet-active {
+        background: var(--color-blue-500);
+        box-shadow: 0 0 12px rgba(58, 102, 255, 0.6);
+        transform: scale(1.2);
+    }
+}
+
+@media (min-width: 769px) {
+    .pricing-swiper .swiper-pagination {
+        display: none;
     }
 }
