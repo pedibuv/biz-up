@@ -196,3 +196,84 @@ document.querySelectorAll('.calc-quick-btn').forEach(btn => {
 document.getElementById('calcConsultBtn')?.addEventListener('click', function() {
     document.getElementById('signup')?.scrollIntoView({behavior: 'smooth'});
 });
+
+// Custom dropdown functionality
+function initCustomDropdowns() {
+    document.querySelectorAll('.calculator .form-group select, .calc-jdg-comparison .form-group select').forEach(select => {
+        if (select.dataset.customized) return;
+        select.dataset.customized = 'true';
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'custom-select-wrapper';
+
+        const customSelect = document.createElement('div');
+        customSelect.className = 'custom-select';
+
+        const selected = document.createElement('div');
+        selected.className = 'custom-select-trigger';
+        selected.innerHTML = `
+            <span>${select.options[select.selectedIndex].text}</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        `;
+
+        const optionsContainer = document.createElement('div');
+        optionsContainer.className = 'custom-select-options';
+
+        Array.from(select.options).forEach((option, index) => {
+            const optionDiv = document.createElement('div');
+            optionDiv.className = 'custom-select-option';
+            if (index === select.selectedIndex) {
+                optionDiv.classList.add('selected');
+            }
+            optionDiv.textContent = option.text;
+            optionDiv.dataset.value = option.value;
+            optionDiv.dataset.index = index;
+
+            optionDiv.addEventListener('click', () => {
+                select.selectedIndex = index;
+                select.dispatchEvent(new Event('change'));
+
+                selected.querySelector('span').textContent = option.text;
+
+                optionsContainer.querySelectorAll('.custom-select-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                optionDiv.classList.add('selected');
+
+                customSelect.classList.remove('open');
+            });
+
+            optionsContainer.appendChild(optionDiv);
+        });
+
+        customSelect.appendChild(selected);
+        customSelect.appendChild(optionsContainer);
+        wrapper.appendChild(customSelect);
+
+        select.style.display = 'none';
+        select.parentNode.insertBefore(wrapper, select);
+
+        selected.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            document.querySelectorAll('.custom-select.open').forEach(s => {
+                if (s !== customSelect) s.classList.remove('open');
+            });
+
+            customSelect.classList.toggle('open');
+        });
+    });
+
+    const closeAllDropdowns = () => {
+        document.querySelectorAll('.custom-select.open').forEach(s => {
+            s.classList.remove('open');
+        });
+    };
+
+    document.removeEventListener('click', closeAllDropdowns);
+    document.addEventListener('click', closeAllDropdowns);
+}
+
+document.addEventListener('DOMContentLoaded', initCustomDropdowns);
