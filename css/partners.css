@@ -1,0 +1,60 @@
+.partners-section {
+    overflow: hidden;
+    padding: 60px 0;
+}
+
+.partners-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.partners-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.partners-track {
+    display: flex;
+    gap: 60px;
+    animation: scroll 30s linear infinite;
+}
+
+.partners-track:hover {
+    animation-play-state: paused;
+}
+
+.partner-logo {
+    height: 60px;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.partner-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.partner-logo--standard {
+    max-height: 40px;
+    max-width: 120px;
+    object-fit: contain;
+}
+
+.partner-logo--inverted {
+    max-height: 40px;
+    max-width: 120px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}

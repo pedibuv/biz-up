@@ -1,5 +1,5 @@
 const fmt = (n, cur='PLN') => {
-    if (isNaN(n)) return '';
+    if (isNaN(n)) return '—';
     try {
         return new Intl.NumberFormat('uk-UA', {style:'currency', currency: cur}).format(n);
     } catch(e) {
@@ -48,7 +48,7 @@ function recalc() {
     document.getElementById('pitRate').innerText = (pitRate*100).toFixed(1).replace('.0','') + '%';
     document.getElementById('pitAmt').innerText = fmt(pitAmt, cur);
     document.getElementById('fee').innerText = fmt(fee, cur);
-    document.getElementById('vatAmt').innerText = withVAT ? fmt(vatAmt, cur) : '';
+    document.getElementById('vatAmt').innerText = withVAT ? fmt(vatAmt, cur) : '—';
     document.getElementById('net').innerText = fmt(net, cur);
     document.getElementById('clientTotal').innerText = fmt(clientTotal, cur);
 
@@ -86,7 +86,7 @@ document.querySelectorAll('.lang-option').forEach(option => {
 // Final contact form
 document.getElementById('finalContactForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    alert('O:CT<> 70 70O2:C! 8 72\'O65<>AL 7 20<8 =091;86G8< G0A>< 4;O 157:>HB>2=>W :>=AC;LB0FVW.');
+    alert('Дякуємо за заявку! Ми зв\'яжемось з вами найближчим часом для безкоштовної консультації.');
     this.reset();
 });
 
@@ -113,18 +113,18 @@ window.addEventListener('scroll', function() {
     const navTop = document.querySelector('.nav-top');
     const nav = document.querySelector('nav');
     const isMainNavVisible = !nav.classList.contains('nav-hidden');
-
+    
     // Scrolling down
     if (currentScroll > lastScroll) {
         mainNavAppearedAt = null; // Reset when scrolling down
-
+        
         if (currentScroll > 10) {
             navTop.classList.add('hidden');
         }
         if (currentScroll > 500) {
             nav.classList.add('nav-hidden');
         }
-    }
+    } 
     // Scrolling up
     else if (currentScroll < lastScroll) {
         // Show main nav when scrolling up from >500
@@ -132,16 +132,16 @@ window.addEventListener('scroll', function() {
             nav.classList.remove('nav-hidden');
             mainNavAppearedAt = currentScroll; // Remember when main nav appeared
         }
-
+        
         // If main nav just appeared, check if we scrolled 500px up from that point
         if (mainNavAppearedAt !== null && (mainNavAppearedAt - currentScroll >= 500)) {
             navTop.classList.remove('hidden');
         }
-
+        
         // Below 500 - always show main nav
         if (currentScroll < 500) {
             nav.classList.remove('nav-hidden');
-
+            
             // If we're very close to top, show top bar too
             if (currentScroll < 10) {
                 navTop.classList.remove('hidden');
@@ -149,7 +149,7 @@ window.addEventListener('scroll', function() {
             }
         }
     }
-
+    
     lastScroll = currentScroll;
 });
 
@@ -170,4 +170,29 @@ const observer = new IntersectionObserver(function(entries) {
 
 document.querySelectorAll('.feature-card, .card, .pricing-card, .blog-card').forEach(el => {
     observer.observe(el);
+});
+
+document.getElementById('amount')?.addEventListener('input', recalc);
+document.getElementById('currency')?.addEventListener('change', recalc);
+document.getElementById('plan')?.addEventListener('change', recalc);
+document.getElementById('withVAT')?.addEventListener('change', recalc);
+document.getElementById('transferIP')?.addEventListener('change', recalc);
+document.getElementById('jdgPreset')?.addEventListener('change', function() {
+    jdgApplyPreset();
+    recalc();
+});
+document.getElementById('jdgRate')?.addEventListener('input', recalc);
+document.getElementById('jdgZUS')?.addEventListener('input', recalc);
+
+document.querySelectorAll('.calc-quick-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const amount = this.dataset.amount;
+        if (amount) {
+            setAmount(Number(amount));
+        }
+    });
+});
+
+document.getElementById('calcConsultBtn')?.addEventListener('click', function() {
+    document.getElementById('signup')?.scrollIntoView({behavior: 'smooth'});
 });

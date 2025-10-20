@@ -5,6 +5,7 @@ Landing page for BIZ UP business incubator service in Poland. Helps freelancers 
 ## Features
 
 - Responsive navigation with social links and contact info
+- Unified Font Awesome social icons (square variants for visual consistency)
 - Multi-language support (UA, EN, PL, RU)
 - Hero section with call-to-action buttons
 - Interactive feature cards slider (Swiper)
@@ -13,28 +14,94 @@ Landing page for BIZ UP business incubator service in Poland. Helps freelancers 
 - Tax calculations (PIT) with/without VAT support
 - Multiple currency support
 - Comparison between BIZ UP, JDG, and B2B models
+- Floating social media sidebar (Telegram, WhatsApp, Viber)
+- Mobile-responsive bottom social bar
 - Smooth scroll animations
+- Custom styled form elements (checkboxes, inputs)
 
 ## Tech Stack
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
+- HTML5 (zero inline styles or inline JS - full separation of concerns)
+- CSS3 with modular architecture (16 separate files)
+- Semantic CSS variables for all colors, gradients, shadows, and spacing
+- Font Awesome 6 Free (square social icons for consistency)
+- Vanilla JavaScript with event delegation
 - Swiper.js 11 (carousel/slider library)
 
 ## Project Structure
 
 ```
 biz-up/
-├── index.html           # Main landing page
+├── index.html              # Main landing page (zero inline styles)
 ├── css/
-│   └── style.css        # Styling and responsive design
+│   ├── style.css           # Main CSS import file
+│   ├── base.css            # Variables, reset, typography, utilities
+│   ├── components.css      # Buttons, cards, badges, forms, floating social
+│   ├── fontawesome-custom.css  # Font Awesome icon customizations
+│   ├── navigation.css      # Navigation styles
+│   ├── hero.css            # Hero section
+│   ├── features.css        # Features section
+│   ├── partners.css        # Partners section
+│   ├── calculator.css      # Calculator and JDG comparison
+│   ├── pricing.css         # Pricing section
+│   ├── comparison.css      # Comparison tables
+│   ├── blog.css            # Blog section
+│   ├── testimonials.css    # Testimonials section
+│   ├── faq.css             # FAQ section
+│   ├── contact.css         # Contact form section
+│   ├── footer.css          # Footer section
+│   └── responsive.css      # Media queries
 ├── js/
-│   ├── script.js        # Calculator logic and interactions
-│   └── swiper-init.js   # Swiper carousel configurations
-└── img/                 # Image assets folder
-    └── .gitignore       # Git ignore for images
+│   ├── script.js           # Calculator logic, event listeners, scroll behavior
+│   ├── swiper-init.js      # Swiper carousel configurations
+│   └── faq.js              # FAQ accordion functionality
+└── img/                    # Image assets folder
+    ├── telegram.svg        # Custom white Telegram icon
+    ├── instagram.svg       # Custom Instagram icon (deprecated - using FA)
+    └── .gitignore          # Git ignore for images
 ```
+
+## CSS Architecture
+
+### Modular Structure
+The CSS is split into 16 separate files for maintainability:
+- **base.css**: 56 semantic CSS variables (colors, gradients, shadows, borders, overlays)
+- **components.css**: Reusable components (buttons, cards, forms, floating social sidebar)
+- **fontawesome-custom.css**: Font Awesome icon customizations
+- **Section files**: Each page section has its own CSS file
+- **responsive.css**: All media queries centralized
+
+### Design System
+- **Zero inline styles or inline JavaScript** - complete separation of concerns
+- **Custom form elements** - styled checkboxes with CSS-only checkmarks
+- **Event delegation** - all event handlers in external JS files
+- **Semantic CSS variables** for all design tokens:
+  - Colors: `--color-blue-500`, `--color-telegram`, etc.
+  - Gradients: `--gradient-primary`, `--gradient-telegram`, etc.
+  - Shadows: `--shadow-primary`, `--shadow-medium`, etc.
+  - Overlays: `--overlay-white-*`, `--overlay-black-*`
+  - Borders: `--border-white-*`, `--border-input-*`
+- **BEM methodology** for class naming
+- **Mobile-first responsive design**
+
+## JavaScript Architecture
+
+All JavaScript event handlers are externalized in dedicated JS files:
+
+- **script.js**:
+  - Calculator with event listeners for all inputs/selects
+  - Quick amount buttons using `data-amount` attributes
+  - Language switcher
+  - Contact form submission
+  - Smooth scroll navigation
+  - Navigation scroll behavior
+  - Intersection Observer for scroll animations
+
+- **swiper-init.js**: Carousel initialization for features, testimonials, partners
+
+- **faq.js**: FAQ accordion interactions
+
+No inline JavaScript (`onclick`, `oninput`, `onchange`) - all handlers use `addEventListener` for maintainability.
 
 ## Usage
 
@@ -51,4 +118,6 @@ The calculator supports:
 ## Contact
 
 - Phone: +48 718 808 505
+- Telegram: @we_expert_bot
 - WhatsApp: +48 718 808 505
+- Viber: +48 718 808 505

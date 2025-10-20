@@ -67,3 +67,22 @@ const testimonialsSwiper = new Swiper('.testimonials-swiper', {
         }
     }
 });
+
+const pricingSwiper = new Swiper('.pricing-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    centeredSlides: true,
+    initialSlide: 1,
+    pagination: {
+        el: '.pricing-swiper .swiper-pagination',
+        clickable: true,
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 32,
+            centeredSlides: false,
+            initialSlide: 0,
+        }
+    }
+});
