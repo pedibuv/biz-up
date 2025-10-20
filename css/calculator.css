@@ -39,6 +39,8 @@
     color: var(--color-white);
     font-size: 16px;
     transition: all 0.3s ease;
+    height: 48px;
+    box-sizing: border-box;
 }
 
 .form-group input:focus {
@@ -70,6 +72,8 @@
     align-items: center;
     transition: all 0.3s ease;
     user-select: none;
+    height: 48px;
+    box-sizing: border-box;
 }
 
 .custom-select-trigger:hover {

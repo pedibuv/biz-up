@@ -135,6 +135,16 @@ body {
     overflow-x: hidden;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 h1, h2, h3 {
     font-family: var(--font-alt);
     margin: 0 0 var(--space-4);
