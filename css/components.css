@@ -150,7 +150,7 @@
 @media (max-width: 768px) {
     .profession-list {
         min-height: auto;
-        padding: 20px 16px;
+        padding: 0;
         gap: 14px;
     }
 
