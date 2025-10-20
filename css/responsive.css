@@ -201,6 +201,11 @@
         grid-template-columns: 1fr !important;
     }
 
+    .calc-checkbox-row {
+        flex-direction: column !important;
+        gap: 0 !important;
+    }
+
     .calc-results__grid {
         grid-template-columns: 1fr !important;
     }

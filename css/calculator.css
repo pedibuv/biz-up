@@ -100,6 +100,11 @@
     display: block;
 }
 
+.calc-checkbox-row {
+    display: flex;
+    gap: 24px;
+}
+
 .calc-checkbox-label {
     display: flex;
     align-items: flex-start;
@@ -108,6 +113,7 @@
     cursor: pointer;
     position: relative;
     padding-left: 32px;
+    flex: 1;
 }
 
 .calc-checkbox-label:last-child {
