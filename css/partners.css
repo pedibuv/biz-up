@@ -25,14 +25,14 @@
 
 .partner-logo {
     height: 60px;
-    filter: grayscale(100%);
-    opacity: 0.6;
+    max-width: 180px;
+    object-fit: contain;
+    opacity: 0.85;
     transition: all 0.3s ease;
     flex-shrink: 0;
 }
 
 .partner-logo:hover {
-    filter: grayscale(0%);
     opacity: 1;
     transform: scale(1.1);
 }
