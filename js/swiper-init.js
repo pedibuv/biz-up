@@ -86,3 +86,22 @@ const pricingSwiper = new Swiper('.pricing-swiper', {
         }
     }
 });
+
+const blogSwiper = new Swiper('.blog-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    loop: true,
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 32,
+        },
+        1024: {
+            slidesPerView: 3,
+        }
+    }
+});
