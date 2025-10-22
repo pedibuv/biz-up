@@ -130,9 +130,10 @@ nav.nav-hidden {
     gap: 8px;
 }
 
-.logo span {
-    color: var(--color-yellow-400);
-}
+.logo img {
+     height: 45px;
+     width: auto;
+ }
 
 .nav-links {
     display: flex;
