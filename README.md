@@ -6,18 +6,19 @@ Landing page for BIZ UP business incubator service in Poland. Helps freelancers 
 
 - Responsive navigation with social links and contact info
 - Unified Font Awesome social icons (square variants for visual consistency)
-- Multi-language support (UA, EN, PL, RU)
+- Multi-language support (UA, EN, PL, RU) with hover/click dropdown
 - Hero section with call-to-action buttons
 - Interactive feature cards slider (Swiper)
-- Partners/payment systems carousel
-- Fee calculator with different pricing plans
+- Partners/payment systems carousel with real brand logos
+- Blog carousel with 8 posts and auto-play
+- Fee calculator with different pricing plans and custom styled dropdowns
 - Tax calculations (PIT) with/without VAT support
 - Multiple currency support
 - Comparison between BIZ UP, JDG, and B2B models
 - Floating social media sidebar (Telegram, WhatsApp, Viber)
 - Mobile-responsive bottom social bar
 - Smooth scroll animations
-- Custom styled form elements (checkboxes, inputs)
+- Custom styled form elements (checkboxes, inputs, select dropdowns)
 
 ## Tech Stack
 
@@ -58,6 +59,19 @@ biz-up/
 └── img/                    # Image assets folder
     ├── telegram.svg        # Custom white Telegram icon
     ├── instagram.svg       # Custom Instagram icon (deprecated - using FA)
+    ├── partners/           # Partner brand logos (PNG format)
+    │   ├── fiverr.png
+    │   ├── upwork.png
+    │   ├── multisport.png
+    │   ├── luxmed.png
+    │   ├── deel.png
+    │   ├── medicover.png
+    │   ├── payu.png
+    │   ├── paypal.png
+    │   ├── przelewy24.png
+    │   ├── stripe.png
+    │   ├── payoneer.png
+    │   └── wise.png
     └── .gitignore          # Git ignore for images
 ```
 
@@ -94,10 +108,10 @@ All JavaScript event handlers are externalized in dedicated JS files:
   - Language switcher
   - Contact form submission
   - Smooth scroll navigation
-  - Navigation scroll behavior
+  - Navigation scroll behavior with stepped appearance
   - Intersection Observer for scroll animations
 
-- **swiper-init.js**: Carousel initialization for features, testimonials, partners
+- **swiper-init.js**: Carousel initialization for features, testimonials, partners, pricing, and blog
 
 - **faq.js**: FAQ accordion interactions
 
