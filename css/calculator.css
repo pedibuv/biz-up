@@ -202,13 +202,6 @@
     font-size: 14px;
 }
 
-.calc-options-label {
-    color: var(--color-white);
-    font-weight: 600;
-    margin-bottom: 16px;
-    display: block;
-}
-
 .calc-checkbox-row {
     display: flex;
     gap: 24px;
