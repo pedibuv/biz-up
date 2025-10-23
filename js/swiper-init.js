@@ -21,11 +21,13 @@ const featuresSwiper = new Swiper('.features-swiper', {
 });
 
 const partnersSwiper = new Swiper('.partners-swiper', {
-    slidesPerView: 2,
+    slidesPerView: 'auto',
     spaceBetween: 57,
     loop: true,
+    freeMode: true,
+    speed: 5000,
     autoplay: {
-        delay: 200000,
+        delay: 0,
         disableOnInteraction: false,
     },
     breakpoints: {
