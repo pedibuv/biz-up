@@ -3,7 +3,7 @@
 }
 
 .partners-swiper .swiper-slide {
-    height: 60px;
+    min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
