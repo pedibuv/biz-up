@@ -2,28 +2,14 @@
     overflow: hidden;
 }
 
-.partners-section .feature-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 180px;
-    padding: 32px 24px;
-}
-
-.partners-section .feature-card::before {
-    display: none;
-}
-
 .partners-section .partner-logo {
-    height: 60px;
     width: auto;
     max-width: 100%;
     object-fit: contain;
-    opacity: 0.85;
     transition: all 0.3s ease;
 }
 
-.partners-section .feature-card:hover .partner-logo {
+.partners-section .partner-logo:hover {
     opacity: 1;
     transform: scale(1.05);
 }

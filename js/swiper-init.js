@@ -22,7 +22,7 @@ const featuresSwiper = new Swiper('.features-swiper', {
 
 const partnersSwiper = new Swiper('.partners-swiper', {
     slidesPerView: 2,
-    spaceBetween: 60,
+    spaceBetween: 57,
     loop: true,
     autoplay: {
         delay: 200000,
