@@ -22,6 +22,14 @@
     color: #0A66C2;
 }
 
+.nav-top-socials .fa-youtube {
+    color: #FF0000;
+}
+
+.nav-top-socials .fa-tiktok {
+    color: #000000;
+}
+
 .nav-top-socials a:hover i {
     transform: scale(1.15);
 }
