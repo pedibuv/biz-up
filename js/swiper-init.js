@@ -25,7 +25,7 @@ const partnersSwiper = new Swiper('.partners-swiper', {
     spaceBetween: 60,
     loop: true,
     autoplay: {
-        delay: 2000,
+        delay: 200000,
         disableOnInteraction: false,
     },
     breakpoints: {

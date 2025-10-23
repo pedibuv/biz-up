@@ -518,7 +518,7 @@
 
         .partners-track {
             display: flex;
-            gap: 60px;
+            gap: 80px;
             animation: scroll 30s linear infinite;
         }
 

@@ -8,24 +8,9 @@
     margin-bottom: 40px;
 }
 
-.partners-carousel {
-    position: relative;
-    overflow: hidden;
-}
-
-.partners-track {
-    display: flex;
-    gap: 60px;
-    animation: scroll 30s linear infinite;
-}
-
-.partners-track:hover {
-    animation-play-state: paused;
-}
-
 .partner-logo {
     height: 60px;
-    max-width: 180px;
+    width: auto;
     object-fit: contain;
     opacity: 0.85;
     transition: all 0.3s ease;
@@ -47,13 +32,4 @@
     max-height: 40px;
     max-width: 120px;
     object-fit: contain;
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
 }
