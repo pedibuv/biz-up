@@ -41,7 +41,7 @@
 
 @media (max-width: 768px) {
     .section {
-        padding: 40px 0 !important;
+        padding: 24px 0 !important;
     }
 
     .partners-section,
@@ -80,6 +80,7 @@
 
     .calculator {
         padding: 24px 16px !important;
+        margin-top: 16px !important;
     }
 
     .calc-results {
@@ -217,5 +218,9 @@
     .comparison-grid,
     .comparison-grid--mt-80 {
         grid-template-columns: 1fr !important;
+    }
+
+    .text-secondary--mb-48 {
+        margin-bottom: 16px;
     }
 }
