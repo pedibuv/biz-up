@@ -1,6 +1,5 @@
 .hero {
-    padding-top: 140px;
-    min-height: 100vh;
+    height: calc(100vh - 130px);
     display: flex;
     align-items: center;
     background: url('../img/hero.jpg') center 20% / cover no-repeat;
