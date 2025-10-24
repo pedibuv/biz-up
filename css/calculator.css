@@ -372,3 +372,8 @@
     margin-bottom: 8px;
     opacity: 0.9;
 }
+
+.calculator .form-group p {
+    font-size: 14px;
+    margin-top: 10px
+}
