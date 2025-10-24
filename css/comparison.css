@@ -44,13 +44,6 @@
     margin-top: 80px;
 }
 
-.comparison-item-group {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 24px;
-}
-
 .comparison-image-placeholder {
     background: var(--gradient-gray);
     background-size: cover;

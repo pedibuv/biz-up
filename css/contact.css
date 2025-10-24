@@ -90,11 +90,31 @@
     justify-content: center;
     color: var(--color-white);
     text-decoration: none;
-    transition: background 0.3s;
+    transition: all 0.3s;
 }
 
 .contact-social-link:hover {
-    background: var(--overlay-white-20);
+    transform: scale(1.1);
+}
+
+.contact-social-link:has(.fa-square-facebook) {
+    background: #1877F2;
+}
+
+.contact-social-link:has(.fa-square-instagram) {
+    background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+}
+
+.contact-social-link:has(.fa-linkedin) {
+    background: #0A66C2;
+}
+
+.contact-social-link:has(.fa-telegram) {
+    background: #29b6f6;
+}
+
+.contact-social-link:has(.fa-envelope) {
+    background: #6B7280;
 }
 
 .contact-phone-section {

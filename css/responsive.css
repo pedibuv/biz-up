@@ -189,6 +189,10 @@
         grid-template-columns: 1fr !important;
     }
 
+    .contact-heading {
+        text-align: center;
+    }
+
     .contact-form-wrapper {
         padding: 24px !important;
     }
