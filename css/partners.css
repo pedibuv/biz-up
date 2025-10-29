@@ -1,0 +1,36 @@
+.partners-section {
+    overflow: hidden;
+}
+
+.partners-swiper .swiper-slide {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partners-section .partner-logo {
+    width: auto;
+    max-width: 100%;
+    max-height: 60px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.partners-section .partner-logo:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.partner-logo--standard {
+    max-height: 40px;
+    max-width: 120px;
+    object-fit: contain;
+}
+
+.partner-logo--inverted {
+    max-height: 40px;
+    max-width: 120px;
+    object-fit: contain;
+}

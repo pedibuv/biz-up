@@ -1,0 +1,259 @@
+nav {
+    position: sticky;
+    top: 0;
+    background: var(--overlay-white-95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: var(--shadow-nav);
+    transition: transform 0.3s ease;
+    overflow: visible;
+}
+
+nav.nav-hidden {
+    transform: translateY(-100%);
+}
+
+.nav-top {
+    background: var(--gradient-primary-subtle);
+    border-bottom: 1px solid var(--color-gray-300);
+    padding: 8px 0;
+    transition: all 0.3s ease;
+    max-height: 100px;
+    overflow: visible;
+}
+
+.nav-top.hidden {
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav-top-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-top-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-top-socials {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.nav-top-socials a {
+    width: 40px;
+    height: 40px;
+    background: var(--overlay-white-10);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.nav-top-socials a:hover {
+    background: var(--overlay-white-20);
+}
+
+/* LinkedIn */
+.nav-top-socials a[title="LinkedIn"] i {
+    color: #0A66C2;
+}
+
+/* Facebook */
+.nav-top-socials a[title="Facebook"] i {
+    color: #1877F2;
+}
+
+/* TikTok */
+.nav-top-socials a[title="TikTok"] i {
+    color: #000000;
+}
+
+/* Instagram */
+.nav-top-socials a[title="Instagram"] i {
+    color: #E4405F;
+}
+
+/* YouTube */
+.nav-top-socials a[title="YouTube"] i {
+    color: #FF0000;
+}
+
+.nav-top-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-top-phone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: var(--bg-section);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.nav-top-phone:hover {
+    background: var(--color-gray-300);
+}
+
+.nav-top-messengers {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-top-messengers a {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-section);
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s;
+}
+
+.nav-top-messengers a:hover {
+    background: var(--color-blue-500);
+    transform: translateY(-2px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--color-blue-500);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo img {
+     height: 45px;
+     width: auto;
+ }
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--tr-fast);
+}
+
+.nav-links a:hover {
+    color: var(--color-purple-500);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    overflow: visible;
+    position: relative;
+    z-index: 10001;
+}
+
+.lang-dropdown {
+    position: relative;
+    margin-left: 20px;
+    z-index: 10002;
+}
+
+.lang-current {
+    padding: 8px 16px;
+    border-radius: 6px;
+    background: var(--bg-section);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: all var(--tr-fast);
+}
+
+.lang-current:hover {
+    background: var(--color-gray-300);
+}
+
+.lang-current::after {
+    font-family: 'Font Awesome 6 Free';
+    content: '\f0d7';
+    font-weight: 900;
+    font-size: 10px;
+    color: var(--text-secondary);
+}
+
+.lang-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background: var(--color-white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-lang);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--tr-fast);
+    min-width: 120px;
+    z-index: 9999;
+}
+
+.lang-dropdown:hover .lang-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background var(--tr-fast);
+    font-weight: 500;
+}
+
+.lang-option:hover {
+    background: var(--bg-section);
+}
+
+.lang-option.active {
+    background: var(--color-blue-500);
+    color: var(--color-white);
+}

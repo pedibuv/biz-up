@@ -1,0 +1,382 @@
+.pricing-toggle-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    padding: 0 16px;
+}
+
+.pricing-card.popular h3 {
+    margin-bottom: 8px;
+}
+
+.pricing-toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pricing-toggle-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.pricing-toggle-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-blue-500), var(--color-purple-500));
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+@media (min-width: 769px) {
+    .pricing-toggle-wrapper {
+        flex-direction: row;
+        gap: 16px;
+        padding: 0;
+    }
+
+    .pricing-toggle-row {
+        gap: 16px;
+    }
+
+    .pricing-toggle-label {
+        font-size: 16px;
+    }
+
+    .pricing-toggle-badge {
+        font-size: 12px;
+    }
+}
+
+.pricing-toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.pricing-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.pricing-toggle-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e0e0e0;
+    border-radius: 34px;
+    transition: 0.4s;
+}
+
+.pricing-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.pricing-toggle input:checked + .pricing-toggle-slider {
+    background: linear-gradient(135deg, var(--color-blue-500), var(--color-purple-500));
+}
+
+.pricing-toggle input:checked + .pricing-toggle-slider:before {
+    transform: translateX(28px);
+}
+
+.pricing-toggle:hover .pricing-toggle-slider {
+    box-shadow: 0 0 0 4px rgba(58, 102, 255, 0.1);
+}
+
+.pricing-swiper {
+    margin-top: 48px;
+}
+
+.pricing-swiper .swiper-wrapper {
+    align-items: stretch;
+}
+
+.pricing-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+}
+
+.pricing-card {
+    padding: 40px 32px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(58, 102, 255, 0.1);
+    box-shadow: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.pricing-card .pricing-features {
+    flex-grow: 1;
+}
+
+.pricing-card .btn {
+    margin-top: auto;
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--color-blue-500), var(--color-purple-500));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.pricing-card:hover {
+    border-color: var(--color-blue-500) !important;
+}
+
+.pricing-card:hover::before {
+    transform: scaleX(1);
+}
+
+.pricing-card.popular {
+    background: linear-gradient(135deg, rgba(58, 102, 255, 0.9), rgba(58, 102, 255, 0.95));
+    border-color: var(--color-yellow-400);
+    box-shadow: none;
+    padding-top: 0;
+}
+
+.pricing-card.popular::before {
+    content: 'ПОПУЛЯРНО';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    background: var(--color-yellow-400);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 12px 20px;
+    text-align: center;
+    border-radius: 22px 22px 0 0;
+    transform: scaleX(1);
+}
+
+.pricing-card.popular:hover::before {
+    background: var(--color-yellow-500);
+}
+
+.pricing-card.popular:hover {
+    transform: translateY(-2px);
+}
+
+.pricing-card.popular .pricing-title {
+    margin-top: 52px;
+}
+
+.pricing-card.popular .pricing-title {
+    color: white;
+}
+
+.pricing-card.popular .pricing-title::after {
+    display: none;
+}
+
+.pricing-card.popular .pricing-features li {
+    color: white;
+}
+
+.pricing-card.popular .pricing-features li::before {
+    color: var(--color-yellow-400);
+}
+
+.pricing-card.popular .btn--primary {
+    background: var(--color-yellow-400);
+    color: var(--text-primary);
+}
+
+.pricing-card.popular .btn--primary:hover {
+    background: var(--color-yellow-500);
+}
+
+.pricing-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+color: var(--color-blue-500);
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.pricing-price {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--color-blue-500);
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--color-yellow-400);
+    display: inline-block;
+}
+
+.pricing-price-period {
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 4px;
+    color: var(--text-secondary);
+}
+
+.pricing-card.popular .pricing-price {
+    color: white;
+    border-bottom-color: var(--color-yellow-400);
+}
+
+.pricing-card.popular .pricing-price-period {
+    color: white;
+}
+
+.pricing-savings {
+    display: none;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0 auto 24px;
+    width: fit-content;
+}
+
+.pricing-card.popular .pricing-savings {
+    background: var(--color-yellow-400);
+    color: var(--text-on-accent);
+}
+
+.pricing-features {
+    list-style: none;
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+.pricing-features li {
+    padding: 8px 0;
+    color: var(--text-secondary);
+    font-size: 15px;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.6;
+    transition: all 0.2s ease;
+}
+
+.pricing-features li:hover {
+    padding-left: 8px;
+    color: var(--color-blue-500);
+}
+
+.pricing-card.popular .pricing-features li:hover {
+    color: var(--color-blue-500);
+}
+
+.pricing-features li::before {
+    font-family: 'Font Awesome 6 Free';
+    content: '\f00c';
+    font-weight: 900;
+    color: var(--color-green-500);
+    margin-right: 12px;
+    flex-shrink: 0;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .pricing-nav-arrows {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+
+    .pricing-button-prev,
+    .pricing-button-next {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        margin: 0 !important;
+        width: 40px !important;
+        height: 40px !important;
+        background: transparent !important;
+    }
+
+    .pricing-button-prev::after,
+    .pricing-button-next::after {
+        font-size: 18px !important;
+        color: var(--color-blue-500) !important;
+        font-weight: 900 !important;
+    }
+
+    .pricing-card.popular {
+        transform: scale(1);
+    }
+
+    .pricing-card.popular:hover {
+        transform: translateY(-8px);
+    }
+
+    .pricing-swiper .swiper-pagination {
+        position: relative;
+        bottom: auto;
+        margin-top: 24px;
+    }
+
+    .pricing-swiper .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: rgba(58, 102, 255, 0.3);
+        opacity: 1;
+        border: 2px solid var(--color-blue-500);
+        margin: 0 6px;
+    }
+
+    .pricing-swiper .swiper-pagination-bullet-active {
+        background: var(--color-blue-500);
+        box-shadow: 0 0 12px rgba(58, 102, 255, 0.6);
+        transform: scale(1.2);
+    }
+}
+
+@media (min-width: 769px) {
+    .pricing-swiper .swiper-pagination,
+    .pricing-nav-arrows {
+        display: none;
+    }
+}

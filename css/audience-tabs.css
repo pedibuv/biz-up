@@ -1,0 +1,64 @@
+@media (min-width: 769px) {
+    .audience-tabs {
+        display: none;
+    }
+
+    .audience-content {
+        display: block !important;
+    }
+
+    .audience-content:not(:first-of-type) .comparison-grid {
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .audience-tabs {
+        display: flex;
+        gap: 0;
+        margin-top: 32px;
+        margin-bottom: 0;
+        border-bottom: 2px solid var(--color-gray-300);
+    }
+
+    .audience-tab {
+        flex: 1;
+        padding: 16px 24px;
+        background: transparent;
+        border: none;
+        border-bottom: 3px solid transparent;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: -2px;
+    }
+
+    .audience-tab.active {
+        background: transparent;
+        border-bottom-color: var(--color-blue-500);
+        color: var(--color-blue-500);
+    }
+
+    .audience-content {
+        display: none;
+        padding-top: 24px;
+    }
+
+    .audience-content.active {
+        display: block;
+    }
+
+    .audience-content .comparison-grid--mt-80 {
+        margin-top: 0;
+    }
+
+    .audience-h2 {
+        display: none;
+    }
+
+    .audience-content p {
+        margin-top: 0;
+    }
+}

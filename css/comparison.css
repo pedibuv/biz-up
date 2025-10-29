@@ -1,0 +1,132 @@
+.comparison-table {
+    overflow-x: auto;
+    margin-top: 48px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--color-white);
+    border-radius: 16px;
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+.table th,
+.table td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-gray-300);
+}
+
+.table th {
+    background: var(--bg-section);
+    font-weight: 700;
+}
+
+.table th:nth-child(2) {
+    background: var(--gradient-primary);
+    color: var(--color-white);
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.comparison-grid--mt-80 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.comparison-image-placeholder {
+    background: var(--gradient-gray);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 24px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comparison-image-placeholder--freelancer {
+    background-image: url('../img/freelancer.jpg');
+}
+
+.comparison-image-placeholder--employer {
+    background-image: url('../img/employer.jpg');
+}
+
+.table-icon-check {
+    color: #10b981;
+}
+
+.table-icon-xmark {
+    color: #ef4444;
+}
+
+.comparison-tabs {
+    display: none;
+    gap: 8px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+}
+
+.comparison-tab {
+    padding: 12px 24px;
+    border: 2px solid var(--color-gray-300);
+    background: var(--color-white);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.comparison-tab.active {
+    border-color: var(--color-primary);
+    background: var(--gradient-primary);
+    color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+    .comparison-tabs {
+        display: flex;
+        justify-content: center;
+    }
+
+    .comparison-tab {
+        padding: 10px 16px;
+        font-size: 14px;
+        flex: 1;
+        text-align: center;
+    }
+
+    .competitor-col {
+        display: none;
+    }
+
+    .competitor-col.active {
+        display: table-cell;
+    }
+
+    .table th,
+    .table td {
+        padding: 12px 8px;
+        font-size: 14px;
+    }
+
+    .partner-logo--inverted {
+        max-width: 80px;
+        max-height: 30px;
+    }
+}

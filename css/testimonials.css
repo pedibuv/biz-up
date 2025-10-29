@@ -1,0 +1,49 @@
+.testimonials-swiper .swiper-slide {
+    height: auto;
+}
+
+.testimonials-swiper {
+    padding-bottom: 0;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.testimonials-swiper .swiper-wrapper {
+    margin-bottom: 60px;
+}
+
+.testimonials-swiper .swiper-pagination {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    text-align: left;
+    margin-top: 0;
+}
+
+.testimonials-swiper .swiper-button-next,
+.testimonials-swiper .swiper-button-prev {
+    width: 36px;
+    height: 36px;
+    background: var(--color-blue-500);
+    border-radius: 50%;
+    top: auto;
+    bottom: 0;
+    margin-top: 0;
+}
+
+.testimonials-swiper .swiper-button-next::after,
+.testimonials-swiper .swiper-button-prev::after {
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+}
+
+.testimonials-swiper .swiper-button-next {
+    right: 0;
+}
+
+.testimonials-swiper .swiper-button-prev {
+    left: auto;
+    right: 56px;
+}

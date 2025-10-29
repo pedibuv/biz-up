@@ -1,0 +1,288 @@
+.contact-section {
+    background: var(--gradient-dark);
+    padding: 80px 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.contact-info {
+    color: var(--color-white);
+}
+
+.contact-heading {
+    color: var(--color-white);
+    font-size: 42px;
+    margin-bottom: 24px;
+}
+
+.contact-description {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 32px;
+}
+
+.contact-details {
+    margin-top: 48px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--color-blue-500);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+}
+
+.contact-icon--purple {
+    background: var(--color-purple-500);
+}
+
+.contact-icon-emoji {
+    font-size: 20px;
+}
+
+.contact-label {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.contact-value {
+    font-size: 16px;
+}
+
+.contact-social-section {
+    margin-top: 32px;
+}
+
+.contact-social-label {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 12px;
+}
+
+.contact-social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.contact-social-link {
+    width: 40px;
+    height: 40px;
+    background: var(--overlay-white-10);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.contact-social-link:hover {
+    transform: scale(1.1);
+}
+
+.contact-social-link:has(.fa-square-facebook),
+.contact-social-link:has(.fa-facebook-f) {
+    background: #1877F2;
+}
+
+.contact-social-link:has(.fa-square-instagram),
+.contact-social-link:has(.fa-instagram) {
+    background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+}
+
+.contact-social-link:has(.fa-linkedin),
+.contact-social-link:has(.fa-linkedin-in) {
+    background: #0A66C2;
+}
+
+.contact-social-link:has(.fa-telegram) {
+    background: #29b6f6;
+}
+
+.contact-social-link:has(.fa-envelope) {
+    background: #6B7280;
+}
+
+.contact-phone-section {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.contact-phone-label {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.contact-phone-link {
+    color: var(--color-yellow-400);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.contact-telegram-section {
+    margin-top: 20px;
+}
+
+.contact-telegram-link {
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-telegram-icon {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: var(--gradient-telegram);
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.contact-form-wrapper {
+    background: var(--overlay-white-05);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px;
+    border: var(--border-white-10);
+}
+
+.contact-form-group {
+    margin-bottom: 24px;
+}
+
+.contact-form-label {
+    display: block;
+    color: var(--color-white);
+    margin-bottom: 8px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.contact-form-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--overlay-white-10);
+    border: var(--border-white-20);
+    border-radius: 8px;
+    color: var(--color-white);
+    font-size: 16px;
+}
+
+.contact-form-input::placeholder {
+    color: var(--overlay-white-50);
+}
+
+.contact-form-input:focus {
+    outline: none;
+    border-color: var(--border-input-focused);
+    background: var(--overlay-white-15);
+}
+
+.contact-form-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--overlay-white-10);
+    border: var(--border-white-20);
+    border-radius: 8px;
+    color: var(--color-white);
+    font-size: 16px;
+    resize: vertical;
+}
+
+.contact-form-textarea::placeholder {
+    color: var(--overlay-white-50);
+}
+
+.contact-form-textarea:focus {
+    outline: none;
+    border-color: var(--border-input-focused);
+    background: var(--overlay-white-15);
+}
+
+.contact-form-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    color: var(--color-white);
+    font-size: 14px;
+    opacity: 0.8;
+    cursor: pointer;
+    position: relative;
+    padding-left: 32px;
+}
+
+.contact-form-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.contact-form-checkbox-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--overlay-white-50);
+    border-radius: 4px;
+    background: var(--overlay-white-10);
+    transition: all 0.3s;
+}
+
+.contact-form-checkbox:checked ~ .contact-form-checkbox-label::before,
+.contact-form-checkbox-label:has(.contact-form-checkbox:checked)::before {
+    background: var(--color-blue-500);
+    border-color: var(--color-blue-500);
+}
+
+.contact-form-checkbox:checked ~ .contact-form-checkbox-label::after,
+.contact-form-checkbox-label:has(.contact-form-checkbox:checked)::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 5px;
+    width: 6px;
+    height: 10px;
+    border: solid var(--color-white);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.contact-form-submit {
+    width: 100%;
+    background: var(--color-blue-500);
+    border: none;
+}
+
+.telegram-icon {
+    font-size: 25px;
+    color: #29b6f6;
+}
+
+.telegram-icon-large {
+    font-size: 48px;
+    color: #29b6f6;
+}
