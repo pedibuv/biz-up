@@ -296,6 +296,16 @@ if (window.innerWidth <= 768) {
 
 document.getElementById('pricingToggle')?.addEventListener('change', function() {
     const isYearly = this.checked;
+    const badge = document.querySelector('.pricing-toggle-badge');
+
+    // Highlight badge when yearly is selected
+    if (badge) {
+        if (isYearly) {
+            badge.classList.add('highlighted');
+        } else {
+            badge.classList.remove('highlighted');
+        }
+    }
 
     document.querySelectorAll('.pricing-card').forEach(card => {
         const monthlyPrice = parseFloat(card.dataset.monthly);
