@@ -300,7 +300,7 @@ color: var(--color-blue-500);
 }
 
 .pricing-card.popular .pricing-features li:hover {
-    color: var(--color-blue-500);
+    color: var(--color-yellow-400);
 }
 
 .pricing-features li::before {
