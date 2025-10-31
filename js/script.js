@@ -1,3 +1,34 @@
+let exchangeRates = { PLN: 1, EUR: 0.23, USD: 0.25 };
+let ratesLoaded = false;
+
+async function fetchExchangeRates() {
+    try {
+        const response = await fetch('https://api.frankfurter.dev/v1/latest?base=EUR&symbols=PLN,USD');
+        const data = await response.json();
+
+        const eurToPln = data.rates.PLN;
+        const eurToUsd = data.rates.USD;
+
+        exchangeRates = {
+            PLN: 1,
+            EUR: 1 / eurToPln,
+            USD: eurToUsd / eurToPln
+        };
+        ratesLoaded = true;
+        updateRateDisplay();
+    } catch (error) {
+        console.error('Failed to fetch exchange rates:', error);
+        exchangeRates = { PLN: 1, EUR: 0.23, USD: 0.25 };
+    }
+}
+
+function updateRateDisplay() {
+    const rateInfo = document.getElementById('exchangeRateInfo');
+    if (rateInfo) {
+        rateInfo.style.display = 'none';
+    }
+}
+
 const fmt = (n, cur='PLN') => {
     if (isNaN(n)) return '—';
     try {
@@ -12,13 +43,52 @@ function setAmount(v) {
     recalc();
 }
 
+const planPrices = {
+    basic: 289,
+    standard: 489,
+    pro: 769
+};
+
 function planCost() {
     const plan = document.getElementById('plan').value;
-    let fee = 0;
-    if(plan==='basic') { fee = 289; }
-    if(plan==='standard') { fee = 489; }
-    if(plan==='pro') { fee = 769; }
-    return fee;
+    return planPrices[plan] || 0;
+}
+
+function updatePlanPrices(currency) {
+    const planSelect = document.getElementById('plan');
+    if (!planSelect) return;
+
+    const options = [
+        { value: 'standard', labelPLN: 'PRO — 489 zł/міс', labelConverted: 'PRO — {price}/міс' },
+        { value: 'basic', labelPLN: 'SOLO — 289 zł/міс', labelConverted: 'SOLO — {price}/міс' },
+        { value: 'pro', labelPLN: 'SCALE — 769 zł/міс', labelConverted: 'SCALE — {price}/міс' }
+    ];
+
+    options.forEach((opt, index) => {
+        const option = planSelect.options[index];
+        let newText;
+
+        if (currency === 'PLN') {
+            newText = opt.labelPLN;
+        } else {
+            const priceInPLN = planPrices[opt.value];
+            const convertedPrice = convertFromPLN(priceInPLN, currency);
+            const formattedPrice = Math.round(convertedPrice) + ' ' + currency;
+            newText = opt.labelConverted.replace('{price}', formattedPrice);
+        }
+
+        option.text = newText;
+
+        const customOption = planSelect.parentElement?.querySelector(`.custom-select-option[data-value="${opt.value}"]`);
+        if (customOption) {
+            customOption.textContent = newText;
+        }
+    });
+
+    const customSelectTrigger = planSelect.parentElement?.querySelector('.custom-select-trigger span');
+    if (customSelectTrigger) {
+        customSelectTrigger.textContent = planSelect.options[planSelect.selectedIndex].text;
+    }
 }
 
 function jdgApplyPreset() {
@@ -31,36 +101,74 @@ function jdgApplyPreset() {
     if(p==='ryczalt15') { rate.value = 15; }
 }
 
+function convertToPLN(amount, fromCurrency) {
+    if (fromCurrency === 'PLN') return amount;
+    const rate = exchangeRates[fromCurrency];
+    return amount / rate;
+}
+
+function convertFromPLN(amount, toCurrency) {
+    if (toCurrency === 'PLN') return amount;
+    const rate = exchangeRates[toCurrency];
+    return amount * rate;
+}
+
+let lastCurrency = 'PLN';
+
 function recalc() {
     const cur = document.getElementById('currency').value;
-    const amount = Number(document.getElementById('amount').value || 0);
+    const inputAmount = Number(document.getElementById('amount').value || 0);
     const withVAT = document.getElementById('withVAT').checked;
     const transferIP = document.getElementById('transferIP').checked;
     const pitRate = transferIP ? 0.06 : 0.096;
-    const fee = planCost();
 
-    const vatAmt = withVAT ? amount * 0.23 : 0;
-    const pitAmt = amount * pitRate;
-    const net = Math.max(0, amount - pitAmt - fee);
-    const clientTotal = withVAT ? amount + vatAmt : amount;
+    const amountInPLN = convertToPLN(inputAmount, cur);
+    const feeInPLN = planCost();
 
-    document.getElementById('gross').innerText = fmt(amount, cur);
+    const vatAmtPLN = withVAT ? amountInPLN * 0.23 : 0;
+    const pitAmtPLN = amountInPLN * pitRate;
+    const netPLN = Math.max(0, amountInPLN - pitAmtPLN - feeInPLN);
+    const clientTotalPLN = withVAT ? amountInPLN + vatAmtPLN : amountInPLN;
+
+    document.getElementById('gross').innerText = fmt(inputAmount, cur);
     document.getElementById('pitRate').innerText = (pitRate*100).toFixed(1).replace('.0','') + '%';
-    document.getElementById('pitAmt').innerText = fmt(pitAmt, cur);
-    document.getElementById('fee').innerText = fmt(fee, cur);
-    document.getElementById('vatAmt').innerText = withVAT ? fmt(vatAmt, cur) : '—';
-    document.getElementById('net').innerText = fmt(net, cur);
-    document.getElementById('clientTotal').innerText = fmt(clientTotal, cur);
+    document.getElementById('pitAmt').innerText = fmt(convertFromPLN(pitAmtPLN, cur), cur);
+    document.getElementById('fee').innerText = fmt(convertFromPLN(feeInPLN, cur), cur);
+    document.getElementById('vatAmt').innerText = withVAT ? fmt(convertFromPLN(vatAmtPLN, cur), cur) : '—';
+    document.getElementById('net').innerText = fmt(convertFromPLN(netPLN, cur), cur);
+    document.getElementById('clientTotal').innerText = fmt(convertFromPLN(clientTotalPLN, cur), cur);
 
-    // JDG calc
     const jdgRate = Number(document.getElementById('jdgRate').value || 0) / 100;
     const jdgZUS = Number(document.getElementById('jdgZUS').value || 0);
-    const jdgPit = amount * jdgRate;
-    const jdgNet = Math.max(0, amount - jdgPit - jdgZUS);
-    document.getElementById('jdgNet').innerText = fmt(jdgNet, cur);
+    const jdgPitPLN = amountInPLN * jdgRate;
+    const jdgNetPLN = Math.max(0, amountInPLN - jdgPitPLN - jdgZUS);
+    document.getElementById('jdgNet').innerText = fmt(convertFromPLN(jdgNetPLN, cur), cur);
+
+    updateRateDisplay();
 }
 
-// Initialize on page load
+function handleCurrencyChange() {
+    const cur = document.getElementById('currency').value;
+    const currentAmount = Number(document.getElementById('amount').value || 0);
+
+    if (currentAmount > 0 && lastCurrency !== cur) {
+        const amountInPLN = convertToPLN(currentAmount, lastCurrency);
+        const newAmount = convertFromPLN(amountInPLN, cur);
+        document.getElementById('amount').value = Math.round(newAmount);
+    }
+
+    updatePlanPrices(cur);
+    lastCurrency = cur;
+    recalc();
+}
+
+fetchExchangeRates().then(() => {
+    if (document.readyState !== 'loading') {
+        jdgApplyPreset();
+        recalc();
+    }
+});
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
         jdgApplyPreset();
@@ -173,7 +281,7 @@ document.querySelectorAll('.feature-card, .card, .pricing-card, .blog-card').for
 });
 
 document.getElementById('amount')?.addEventListener('input', recalc);
-document.getElementById('currency')?.addEventListener('change', recalc);
+document.getElementById('currency')?.addEventListener('change', handleCurrencyChange);
 document.getElementById('plan')?.addEventListener('change', recalc);
 document.getElementById('withVAT')?.addEventListener('change', recalc);
 document.getElementById('transferIP')?.addEventListener('change', recalc);
