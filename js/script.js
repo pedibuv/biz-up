@@ -23,13 +23,8 @@ async function fetchExchangeRates() {
 }
 
 function updateRateDisplay() {
-    const cur = document.getElementById('currency')?.value || 'PLN';
     const rateInfo = document.getElementById('exchangeRateInfo');
-    if (rateInfo && cur !== 'PLN') {
-        const rate = exchangeRates[cur];
-        rateInfo.textContent = `1 PLN = ${rate.toFixed(4)} ${cur}`;
-        rateInfo.style.display = 'block';
-    } else if (rateInfo) {
+    if (rateInfo) {
         rateInfo.style.display = 'none';
     }
 }
