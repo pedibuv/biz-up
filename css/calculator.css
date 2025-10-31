@@ -377,3 +377,8 @@
     font-size: 14px;
     margin-top: 10px
 }
+
+#exchangeRateInfo {
+    color: var(--color-white) !important;
+    font-weight: 500;
+}
