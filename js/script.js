@@ -48,13 +48,52 @@ function setAmount(v) {
     recalc();
 }
 
+const planPrices = {
+    basic: 289,
+    standard: 489,
+    pro: 769
+};
+
 function planCost() {
     const plan = document.getElementById('plan').value;
-    let fee = 0;
-    if(plan==='basic') { fee = 289; }
-    if(plan==='standard') { fee = 489; }
-    if(plan==='pro') { fee = 769; }
-    return fee;
+    return planPrices[plan] || 0;
+}
+
+function updatePlanPrices(currency) {
+    const planSelect = document.getElementById('plan');
+    if (!planSelect) return;
+
+    const options = [
+        { value: 'standard', labelPLN: 'PRO — 489 zł/міс', labelConverted: 'PRO — {price}/міс' },
+        { value: 'basic', labelPLN: 'SOLO — 289 zł/міс', labelConverted: 'SOLO — {price}/міс' },
+        { value: 'pro', labelPLN: 'SCALE — 769 zł/міс', labelConverted: 'SCALE — {price}/міс' }
+    ];
+
+    options.forEach((opt, index) => {
+        const option = planSelect.options[index];
+        let newText;
+
+        if (currency === 'PLN') {
+            newText = opt.labelPLN;
+        } else {
+            const priceInPLN = planPrices[opt.value];
+            const convertedPrice = convertFromPLN(priceInPLN, currency);
+            const formattedPrice = Math.round(convertedPrice) + ' ' + currency;
+            newText = opt.labelConverted.replace('{price}', formattedPrice);
+        }
+
+        option.text = newText;
+
+        const customOption = planSelect.parentElement?.querySelector(`.custom-select-option[data-value="${opt.value}"]`);
+        if (customOption) {
+            customOption.textContent = newText;
+        }
+    });
+
+    const customSelectTrigger = planSelect.parentElement?.querySelector('.custom-select-trigger span');
+    if (customSelectTrigger) {
+        customSelectTrigger.textContent = planSelect.options[planSelect.selectedIndex].text;
+    }
 }
 
 function jdgApplyPreset() {
@@ -123,6 +162,7 @@ function handleCurrencyChange() {
         document.getElementById('amount').value = Math.round(newAmount);
     }
 
+    updatePlanPrices(cur);
     lastCurrency = cur;
     recalc();
 }
